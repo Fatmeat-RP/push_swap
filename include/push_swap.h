@@ -18,3 +18,13 @@ typedef struct s_args
 {
 	int	*args
 }	t_args;
+
+typedef struct s_stack
+{
+	int		num;
+	int		index;
+	t_stack	*next;
+	t_stack	*prev;
+	t_stack	*first;
+	t_stack	*last;
+}	t_stack;

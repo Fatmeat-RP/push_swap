@@ -6,13 +6,13 @@ t_args	parse_all_args(int ac, char **av)
 	i = 0;
 	while (i < ac)
 	{
-		parse_one_arg(av[i]);
+		ft_intjoin(arg->args, parse_one_arg(av[i]));
 		i++;
 	}
 	return (arg);
 }
 
-int	parse_one_arg(char oneav)
+int	parse_one_arg(char *av)
 {
-	
+	return ()
 }
