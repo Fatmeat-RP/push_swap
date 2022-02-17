@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(int off_set, char *s)
+int	stack_ft_atoi(int off_set, char *s)
 {
 	int	i;
 	int	res;
@@ -24,4 +24,8 @@ int	ft_atoi(int off_set, char *s)
 	}
 	off_set += i;
 	return (res);
+}
+
+sorting_stack_a(stack_am stack_b)
+{
 }

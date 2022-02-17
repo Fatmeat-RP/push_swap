@@ -3,10 +3,12 @@
 int	main(int ac, char **av)
 {
 	t_stack stack_a;
+    t_stack stack_b;
 	int	i;
 
 	i = 1;
 	args_to_stack_a(ac, av);
+    sorting_stack_a(stack_a, stack_b);
 	return (0);
 }
 
@@ -14,7 +16,6 @@ args_to_stack_a(t_stack *stack_a, int ac, char **av)
 {
 	int		i;
 	int		null_counter;
-	t_stack	*new_elem;
 
 	i = 0;
 	while(av[1][i] && null_counter < ac)
@@ -29,18 +30,19 @@ args_to_stack_a(t_stack *stack_a, int ac, char **av)
 	while(av[1][i] && null_counter)
 	{
 		if (av[1][i] < '0' && av[1][i] > '9')
-			i += create_new_nodes(stack_a, *(av[1]  + i, new_elem));
+			i += create_new_nodes(stack_a, *(av[1] + i));
 		if (av[1][i] == '\0')
 			null_counter--;
 		i++;
 	}
-	link_nodes_back(stack_a, new_elem);
 	return (stack_a);
 }
 
-create_new_nodes(t_stack *stack_a, char *s)
+void    new_nodes_handling(t_stack *stack_a, char *s)
 {
-	/* need to create and malloc a new eleme and add it to*/
-	stack_a = 
-	stack_ft_atoi(s);
+    t_stack *new_nodes;
+
+	new_nodes = ft_stack_new(stack_ft_atoi(s));
+	link_nodes_back(stack_a, new_nodes);
+    
 }
