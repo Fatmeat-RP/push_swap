@@ -1,4 +1,4 @@
-* ************************************************************************** */
+/* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
@@ -10,21 +10,13 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <stdlib.h>
-#include <libft.h>
+#ifndef PUSH_SWAP_H
+# define PUSH_SWAP_H
 
-typedef struct s_args
-{
-	int	*args
-}	t_args;
+# include <unistd.h>
+# include <stdlib.h>
+//# include <libft.h>
 
-typedef struct s_stack
-{
-	int		num;
-	int		index;
-	t_stack	*next;
-	t_stack	*prev;
-	t_stack	*first;
-	t_stack	*last;
-}	t_stack;
+void	args_to_stack_a(int ac, char **av);
+
+#endif
