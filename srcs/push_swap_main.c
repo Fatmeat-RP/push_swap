@@ -12,6 +12,11 @@ int	main(int ac, char **av)
 	return (0);
 }
 
+int	check_char(char c)
+{
+	return ((c < 0 || (c > 20 && c < '0') || c > '9')
+}
+
 void	args_to_stack_a(int ac, char **av)
 {
 	int		i;
@@ -22,7 +27,7 @@ void	args_to_stack_a(int ac, char **av)
 	avp = av[1];
 	while(null_counter < (ac - 1))
 	{
-		if (avp[i] < 0 || (avp[i] > 20 && avp[i] < '0') || avp[i] > '9')
+		if (check_char(avp[i]))
 		{
 			printf("Error\n");
 			break ;
