@@ -2,13 +2,12 @@
 
 int	main(int ac, char **av)
 {
-//	t_stack	stack_a;
-//	t_stack	stack_b;
-/*	int		i;
+	t_stack	stack_a;
+	t_stack	stack_b;
 
-	i = 1;*/
-	args_to_stack_a(ac, av);
-/*	sorting_stack_a(stack_a, stack_b);*/
+	if (!args_to_stack_a(ac, av, stack_a))
+		return (-1);
+	sorting_stack_a(stack_a, stack_b);
 	return (0);
 }
 
@@ -17,10 +16,25 @@ int	check_char(char c)
 	return ((c < 0 || (c > 20 && c < '0') || c > '9')
 }
 
-void	args_to_stack_a(int ac, char **av)
+check_doublon(t_stack stack_a)
 {
-	int		i;
-	int		null_counter;
+	t_stack *tmp;
+
+	tmp = stack_a;
+	while (tmp->next != NULL && stack_a->next != NULL)
+	{
+		if (tmp->elem == stack_a->elem && tmp->index != stack_a->index)
+			return (-1);
+		tmo = tmp->next;
+		stack_a = stack_a->next;
+	}
+	retrun (0);
+}
+
+void	args_to_stack_a(int ac, char **av, t_stack stack_a)
+{
+	int	i;
+	int	null_counter;
 	char	*avp;
 
 	i = 0;
@@ -30,26 +44,17 @@ void	args_to_stack_a(int ac, char **av)
 		if (check_char(avp[i]))
 		{
 			printf("Error\n");
-			break ;
+			return(-1);
 		}
-/*				|| get_err())
-			return (-1);*/
 		if (avp[i] == '\0')
 			null_counter++;
 		i++;
 	}
 	write(1, avp, i);
-/*	i = 0;
-	while(avp[i] && null_counter)
-	{
-		if (avp[i] > '0' && avp[i] < '9')// || new_nodes(stack_a, avp[i]))
-			return (-1);
-		if (avp[i] == '\0')
-			null_counter--;
-		i++;
-	}
-	return (stack_a);
-*/}
+	stack_a = avp_to_stack(avp);
+	check_doublon(stack_a);
+	return(i);
+}
 
 /*int    new_nodes(t_stack *stack_a, char *s)
 {
@@ -59,4 +64,3 @@ void	args_to_stack_a(int ac, char **av)
 	link_nodes_back(stack_a, new_nodes);
     
 }*/
-
