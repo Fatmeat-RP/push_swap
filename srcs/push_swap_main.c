@@ -25,7 +25,7 @@ check_doublon(t_stack stack_a)
 	{
 		if (tmp->elem == stack_a->elem && tmp->index != stack_a->index)
 			return (-1);
-		tmo = tmp->next;
+		tmp = tmp->next;
 		stack_a = stack_a->next;
 	}
 	retrun (0);
