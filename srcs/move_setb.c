@@ -1,6 +1,6 @@
-int	sb(t_stack stack_b)
+int	sb(t_stack *stack_b)
 {
-	int	tmp;
+	t_stack	tmp;
 
 	if (stack_b == NULL || stack_b->next == NULL)
 		return (-1);
@@ -10,17 +10,17 @@ int	sb(t_stack stack_b)
 	return (0);
 }
 
-int	pb(t_stack stack_a, t_stack stack_b)
+int	pb(t_stack *stack_a, t_stack *stack_b)
 {
 	push_front(stack_a, stack_b);
 }
 
-int	rb(t_stack stack_b)
+int	rb(t_stack *stack_b)
 {
 	shiftstack(stack_b);
 }
 
-int	rrb(t_stack stack_b)
+int	rrb(t_stack *stack_b)
 {
 	reverse_shift_stack(stack_b);
 }
