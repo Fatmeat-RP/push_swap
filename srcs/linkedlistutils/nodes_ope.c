@@ -16,6 +16,7 @@ void	ft_lstdelone(t_stack *lst, void (*del)(void*))
 void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
 	new->next = *lst;
+	*lst->prev = new;
 	*lst = new;
 }
 
@@ -29,5 +30,6 @@ void	ft_lstadd_back(t_stack **lst, t_stack *new)
 	{
 		p = ft_lstlast(*lst);
 		p->next = new;
+		new->prev = p;
 	}
 }

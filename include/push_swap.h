@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:09:36 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/03/29 15:00:43 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/03/29 18:16:03 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_stack
 
 typedef struct s_return
 {
-	struct t_return	*more;
 	void		*r1;
 	void		*r2;
 	void		*r3;
@@ -34,7 +33,7 @@ typedef struct s_return
 	void		*r5;
 }	t_return;
 
-//t_return	*aostoaoi(char **aos, int size);
+//t_return	*aostoaoi(char *s, int size);
 //t_return	*giga_atoi(char	*s);
 //t_stack		*ft_lstnew(void *content)
 //t_stack 	**stack_creator(char **avp, int size)
