@@ -36,3 +36,10 @@ int	sorted(t_stack *stack)
 	}
 	return (1);
 }
+
+int	empty(t_stack **stack)
+{
+	if (stack->next)
+		return (-1);
+	return (1);
+}
