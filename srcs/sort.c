@@ -1,9 +1,11 @@
-void	sort(t_stack stack_a, t_stack stack_b)
+void	sort(t_stack stack_a, t_stack stack_b, int stack_size)
 {
 	int	i;
 	int	j;
 
 	i = 0;
+	if (sorted(stack_a) || stack_size <= 0)
+			return ;
 	while (!sorted(stack_a))
 	{
 		j = 0;
@@ -20,4 +22,17 @@ void	sort(t_stack stack_a, t_stack stack_b)
 			pa();
 		i++;
 	}
+}
+
+int	sorted(t_stack *stack)
+{
+	int	i;
+
+	i = -1;
+	while (++i < stack_size)
+	{
+		if (stack->array[i + 1] > stack->array[i])
+			return (-1);
+	}
+	return (1);
 }
