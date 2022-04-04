@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:36:01 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/04 14:36:33 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/04 15:35:46 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,7 @@ int			reverseshift(t_stack *stack);
 t_ui64		lst_size(t_stack *lst);
 void		lst_foreach(t_llst *linked_list, t_cons fun);
 void		lst_foreachduo(t_llst *linked_list, t_dcons fun, void *param);
+void		node_clear(t_node *node);
+void		llst_clear(t_llst *linked_list);
 
 #endif
