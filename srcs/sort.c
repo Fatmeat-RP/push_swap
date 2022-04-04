@@ -1,17 +1,19 @@
-void	sort(t_stack stack_a, t_stack stack_b, int stack_size)
+#include <push_swap.h>
+
+void	sort(t_stack *stack_a, t_stack *stack_b, int stack_size)
 {
 	int	i;
 	int	j;
 
 	i = 0;
-	if (sorted(stack_a) || stack_size <= 0)
+	if (sorted(stack_a, stack_size) || stack_size <= 0)
 			return ;
-	while (!sorted(stack_a))
+	while (!sorted(stack_a, stack_size))
 	{
 		j = 0;
-		while(while j < stack_size)
+		while(j < stack_size)
 		{
-			int num = *(stack_a)->elem;
+			int num = stack_a->elem;
 			if ((num >> i) & 1)
 				ra();
 			else
@@ -24,20 +26,21 @@ void	sort(t_stack stack_a, t_stack stack_b, int stack_size)
 	}
 }
 
-int	sorted(t_stack *stack)
+int	sorted(t_stack *stack, int stack_size)
 {
-	int	i;
+	t_stack	*tmp;
 
-	i = -1;
-	while (++i < stack_size)
+	tmp = stack;
+	while (stack->next)
 	{
-		if (stack->array[i + 1] > stack->array[i])
+		if (stack->elem > stack->next->elem)
 			return (-1);
+		stack = stack->next;
 	}
 	return (1);
 }
 
-int	empty(t_stack **stack)
+int	empty(t_stack *stack)
 {
 	if (stack->next)
 		return (-1);

@@ -1,29 +1,16 @@
 #include <push_swap.h>
 
-t_stack	*ft_lstnew(void *content)
+t_stack	*ft_lstnew(int content)
 {
 	t_stack	*lst;
 
-	lst = (t_list *) malloc (sizeof(t_list));
+	lst = (t_stack *)malloc(sizeof(t_stack));
 	if (!lst)
 		return (NULL);
-	lst->content = content;
+	lst->elem = content;
 	lst->next = NULL;
 	lst->prev = NULL;
 	return (lst);
-}
-
-int	ft_lstsize(t_list *lst)
-{
-	long	i;
-
-	i = 0;
-	while (lst)
-	{
-		lst = lst->next;
-		i++;
-	}
-	return (i);
 }
 
 int	ft_lstsize(t_stack *lst)
@@ -39,14 +26,28 @@ int	ft_lstsize(t_stack *lst)
 	return (i);
 }
 
-void	ft_lstclear(t_stack **lst, void (*del)(void*))
+t_stack	*ft_lstlast(t_stack *lst)
+{
+	long	i;
+
+	i = 0;
+	while (lst->next)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (lst);
+}
+
+
+void	ft_lstclear(t_stack *lst, void (*del)(void*))
 {
 	t_stack	*p;
 
-	while (*lst)
+	while (lst)
 	{
-		p = (*lst)->next;
-		ft_lstdelone(*lst, del);
-		*lst = p;
+		p = (lst)->next;
+		ft_lstdelone(lst, del);
+		lst = p;
 	}
 }
