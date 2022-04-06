@@ -4,6 +4,7 @@ void	sort(t_stack *stack_a, t_stack *stack_b, int stack_size)
 {
 	int	i;
 	int	j;
+	int	num;
 
 	i = 0;
 	if (sorted(stack_a, stack_size) || stack_size <= 0)
@@ -13,7 +14,7 @@ void	sort(t_stack *stack_a, t_stack *stack_b, int stack_size)
 		j = 0;
 		while(j < stack_size)
 		{
-			int num = stack_a->elem;
+			num = stack_a->elem;
 			if ((num >> i) & 1)
 				ra();
 			else
@@ -42,7 +43,7 @@ int	sorted(t_stack *stack, int stack_size)
 
 int	empty(t_stack *stack)
 {
-	if (stack->next)
+	if (stack->next) 
 		return (-1);
 	return (1);
 }

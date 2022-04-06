@@ -60,6 +60,8 @@ int	args_to_stack_a(int ac, char **av, t_stack *stack_a)
 		i++;
 	}
 	write(1, avp, i);
+	if (sorted(stack_a, stack_size) || stack_size <= 0)
+			return (-1);
 	stack_a = stack_creator(avp, i);
 	i = check_doublon(stack_a);
 	if (i)

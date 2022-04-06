@@ -43,13 +43,11 @@ struct s_stack
 {
 	int		elem;
 	int		index;
-	int		weight;
 };
 
 struct s_node
 {
 	t_node	*next;
-	t_node	*prev;
 	void	*elem;
 };
 
@@ -57,7 +55,6 @@ struct s_llst
 {
 	t_cons	del;
 	t_node	*first;
-	t_node	*last;
 	t_ui64	size;
 };
 
