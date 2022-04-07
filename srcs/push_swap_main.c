@@ -2,14 +2,15 @@
 
 int	main(int ac, char **av)
 {
-	t_stack	stack_a;
-	t_stack	stack_b;
+	t_llst	*stack_a;
+	t_llst	*stack_b;
 
-	if (!args_to_stack_a(ac, av, &stack_a))
+	if (!args_to_stack_a(ac, av, stack_a))
 	{
 		printf("Error !");
 		return (-1);
 	}
+	check_doublon(stack_a);
 //	sorting_stack_a(stack_a, stack_b);
 	return (0);
 }
@@ -22,16 +23,17 @@ int	check_char(char c)
 int	check_doublon(t_llst *stack_a)
 {
 	t_node *tmp;
-	t_node *pa;
+	t_node *psa;
 
-	pa = stack_a->first;
-	tmp = pa;
+	psa = stack_a->first;
+	tmp = psa;
 	while (stack_a->first->next != NULL)
 	{
-		tmp = pa;
+		tmp = psa;
 		while(tmp->next != NULL)
 		{
-			if (tmp->elem == stack_a->first->elem && tmp->elem->index != stack_a->first->elem->index)
+			if (tmp->elem == stack_a->first->elem
+				&& tmp->elem->index != stack_a->first->elem->index)
 				return (stack_a->first->elem->elem);
 			tmp = tmp->next;
 		}
@@ -60,7 +62,7 @@ int	args_to_stack_a(int ac, char **av, t_llst *stack_a)
 		i++;
 	}
 	write(1, avp, i);
-	if (sorted(stack_a, stack_size) || stack_size <= 0)
+	if (sorted(stack_a, stack_a->size) || stack_a->size <= 0)
 			return (-1);
 	stack_a = stack_creator(avp, i);
 	i = check_doublon(stack_a);

@@ -27,23 +27,21 @@ void	sort(t_stack *stack_a, t_stack *stack_b, int stack_size)
 	}
 }
 
-int	sorted(t_stack *stack, int stack_size)
+int	sorted(t_node *stack, int stack_size)
 {
 	t_stack	*tmp;
 
 	tmp = stack;
 	while (stack->next)
 	{
-		if (stack->elem > stack->next->elem)
+		if (stack->elem->index > stack->next->elem->index)
 			return (-1);
 		stack = stack->next;
 	}
 	return (1);
 }
 
-int	empty(t_stack *stack)
+int	empty(t_node *stack)
 {
-	if (stack->next) 
-		return (-1);
-	return (1);
+	return (!(stack));
 }
