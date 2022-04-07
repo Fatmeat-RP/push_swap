@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:36:01 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/04 15:35:46 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/07 20:21:17 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,20 +48,20 @@ struct s_stack
 struct s_node
 {
 	t_node	*next;
-	void	*elem;
+	t_stack	*elem;
 };
 
 struct s_llst
 {
 	t_cons	del;
 	t_node	*first;
+	t_node	*last;
 	t_ui64	size;
 };
 
 /* ************************************************************************** */
 
 t_stack		*lst_lstlast(t_stack *stack);/* almost useless */
-t_stack		*node_first(t_stack *stack);/* almost useless */
 t_stack		*lst_new(int content);
 void		lst_clear(t_stack *lst, void (*del)(void*));
 void		lst_add_front(t_stack *lst, t_stack *new);

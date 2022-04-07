@@ -19,28 +19,28 @@ int	check_char(char c)
 	return ((c < 0 || (c > 20 && c < '0') || c > '9'));
 }
 
-int	check_doublon(t_stack *stack_a)
+int	check_doublon(t_llst *stack_a)
 {
-	t_stack *tmp;
-	t_stack *pa;
+	t_node *tmp;
+	t_node *pa;
 
-	pa = stack_a;
+	pa = stack_a->first;
 	tmp = pa;
-	while (stack_a->next != NULL)
+	while (stack_a->first->next != NULL)
 	{
 		tmp = pa;
 		while(tmp->next != NULL)
 		{
-			if (tmp->elem == stack_a->elem && tmp->index != stack_a->index)
-				return (stack_a->elem);
+			if (tmp->elem == stack_a->first->elem && tmp->elem->index != stack_a->first->elem->index)
+				return (stack_a->first->elem->elem);
 			tmp = tmp->next;
 		}
-		stack_a = stack_a->next;
+		stack_a->first = stack_a->first->next;
 	}
 	return (0);
 }
 
-int	args_to_stack_a(int ac, char **av, t_stack *stack_a)
+int	args_to_stack_a(int ac, char **av, t_llst *stack_a)
 {
 	int		i;
 	int		null_counter;

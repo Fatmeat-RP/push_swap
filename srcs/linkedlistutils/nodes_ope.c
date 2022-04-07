@@ -18,23 +18,21 @@ void	ft_lstdelone(t_stack *lst, void (*del)(void*))
 	}
 }
 
-void	ft_lstadd_front(t_stack *lst, t_stack *new)
+void	ft_lstadd_front(t_llst *lst, t_node *new)
 {
 	new->next = lst;
-	lst->prev = new;
-	lst = new;
+	lst->first = new;
 }
 
-void	ft_lstadd_back(t_stack *lst, t_stack *new)
+void	ft_lstadd_back(t_llst *lst, t_node *new)
 {
-	t_stack	*p;
+	t_node	*p;
 
 	if (!lst)
-		lst = new;
+		lst->first = new;
 	else
 	{
-		p = ft_lstlast(lst);
+		p = ft_lstlast(lst->first);
 		p->next = new;
-		new->prev = p;
 	}
 }
