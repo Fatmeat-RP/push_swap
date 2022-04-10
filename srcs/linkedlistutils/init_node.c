@@ -14,6 +14,9 @@
 
 t_llst	*lst_init(t_llst *linked_list, t_cons del)
 {
+	linked_list = malloc(sizeof(t_llst));
+	if (!linked_list)
+		return ;
 	linked_list->del = del;
 	linked_list->size = 0;
 	linked_list->first = NULL;
@@ -23,6 +26,9 @@ t_llst	*lst_init(t_llst *linked_list, t_cons del)
 
 t_node *node_init(t_node *node)
 {
+	node = malloc(sizeof(t_node));
+	if (!node)
+		return ;
 	node->elem = NULL;
 	node->next = NULL;
 	return (node);
@@ -30,6 +36,9 @@ t_node *node_init(t_node *node)
 
 t_stack	*stack_init(t_stack *stack)
 {
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return ;
 	stack->elem = 0;
 	stack->index = 0;
 	return (stack);
