@@ -3,14 +3,24 @@
 int	main(int ac, char **av)
 {
 	t_llst	*stack_a;
-	t_llst	*stack_b;
 
-	if (!args_to_stack_a(ac, av, stack_a))
+	stack_a = args_to_stack_a(ac, av);
+	if (!stack_a)
 	{
-		printf("Error !");
+		write(2, "Error, couldn't init the stack_a\n", 54);
 		return (-1);
 	}
-	check_doublon(stack_a);
+	if (sorted(stack_a, stack_a->size) || stack_a->size <= 0)
+	{
+			write(2, "stack is already sorted or null\n", 30);
+			lst_clear(stack_a, free);
+			return (0);
+	}
+	if (check_doublon(stack_a))
+	{
+		write(2, "Error, duplicate element\n", 25);
+		return (-1);
+	}
 //	sorting_stack_a(stack_a, stack_b);
 	return (0);
 }
@@ -42,11 +52,12 @@ int	check_doublon(t_llst *stack_a)
 	return (0);
 }
 
-int	args_to_stack_a(int ac, char **av, t_llst *stack_a)
+t_llst	*args_to_stack_a(int ac, char **av)
 {
 	int		i;
 	int		null_counter;
 	char	*avp;
+	t_llst	*stack_a;
 
 	i = 0;
 	avp = av[1];
@@ -62,14 +73,6 @@ int	args_to_stack_a(int ac, char **av, t_llst *stack_a)
 		i++;
 	}
 	write(1, avp, i);
-	if (sorted(stack_a, stack_a->size) || stack_a->size <= 0)
-			return (-1);
 	stack_a = stack_creator(avp, i);
-	i = check_doublon(stack_a);
-	if (i)
-	{
-		printf("donblon : %d\n", i);
-		return (-1);
-	}
-	return(i);
+	return(stack_a);
 }

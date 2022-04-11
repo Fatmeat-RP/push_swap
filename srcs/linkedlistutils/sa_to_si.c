@@ -1,20 +1,21 @@
 #include "../../include/push_swap.h"
 
-int	atostack(char *s, int size, t_stack *stack)
+t_llst	*atostack(char *s, int size)
 {
 	t_return	*ret;
 	size_t		i;
+	t_llst		*stack;
 
 	while (i < size)
 	{
 		ret = giga_atoi(&(s[i]));
 		if (!ret)
-			return (0);
-		ft_lstadd_back(stack, ft_lstnew((int)ret->r1)); 
+			return (stack);
+		ft_lstadd_back(stack->first, ft_lstnew((int)ret->r1)); 
 		i += (size_t)ret->r2;
 		free(ret);
 	}
-	return (1);
+	return (stack);
 }
 
 t_return	*giga_atoi(char	*s)
