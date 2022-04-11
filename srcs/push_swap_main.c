@@ -60,7 +60,7 @@ t_llst	*args_to_stack_a(int ac, char **av)
 	t_llst	*stack_a;
 
 	i = 0;
-	avp = av[1];
+	avp = *av;
 	while(null_counter < (ac - 1))
 	{
 		if (check_char(avp[i]))
