@@ -1,13 +1,23 @@
 #include <stack.h>
 
-t_node	*ft_lstnew(void *content)
+t_node	*new_node_2(void *elem, t_node *next, t_cons delete)
 {
-	t_node	*new_node;
+	t_node	*entry;
 
-	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_node)
+	entry = malloc(sizeof(t_node));
+	if (!entry)
+	{
+		if (next)
+			delete(next->elem);
+		free(next);
 		return (NULL);
-	if (!init_node(new_node))
-		return (NULL);
-	return (new_node);
+	}
+	entry->elem = elem;
+	entry->next = next;
+	return (entry);
+}
+
+t_node	*new_node(void *value)
+{
+	return (lst_new_entry_2(value, NULL, NULL));
 }
