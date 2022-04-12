@@ -1,6 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sa_to_si.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/12 17:28:54 by acarle-m          #+#    #+#             */
+/*   Updated: 2022/04/12 17:35:20 by acarle-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-t_llst *stack_creator(char *avp, int size)
+t_llst	*stack_creator(char *avp, size_t size)
 {
 	t_llst	*stack;
 
@@ -8,18 +20,23 @@ t_llst *stack_creator(char *avp, int size)
 	return (stack);
 }
 
-t_llst	*atostack(char *s, int size)
+t_llst	*atostack(char *s, size_t size)
 {
 	t_return	*ret;
 	size_t		i;
 	t_llst		*stack;
 
+	stack = lst_init((t_cons)llst_clear);
+	i = 0;
 	while (i < size)
 	{
 		ret = giga_atoi(&(s[i]));
 		if (!ret)
-			return (stack);
-		ft_lstadd_back(stack->first, ft_lstnew((int)ret->r1)); 
+		{
+			llst_clear(stack);
+			return (NULL);
+		}
+		ft_lstadd_back(stack, new_node(ret->r1));
 		i += (size_t)ret->r2;
 		free(ret);
 	}

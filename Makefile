@@ -13,30 +13,44 @@ CFLAGS			=	-Wall -Wextra -Werror
 
 HEADERDIR		=	include/
 
-HEADER			=	
+HEADER			=	stack.h
+
+SRCS			= 	$(SRCSDIR)push_swap_main.c		\
+					$(SRCSDIR)sa_to_si.c			\
+					$(SRCSDIR)sort.c				\
 
 OBJS			=	$(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 
-SRCS			= 	$(wildcard $(SRCSDIR)*.c)
+HEADERS			=	$(HEADERDIR)$(HEADER)
 
-$(NAME)		:	$(OBJS)
-			$(CC)
+LIB			=	llst/build/llst.a
 
-$(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c $(HEADER)
-			$(CC) 
+HFLAGS		=	-Iinclude -Illst/include
 
-directory	:
-			mkdir -p $(BUILDDIR)
-			mkdir -p $(OBJSDIR)
+all				:	$(NAME)
 
-all			: mandatory
+$(NAME)			:	$(OBJS)
+			@$(CC) $(OBJS) -o $(NAME) $(LIB)
 
-mandatory	:	$(NAME)	: 	directory
+$(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c directory $(LIB)
+			@$(CC) $(CFLAGS) ${HFLAGS} -c $< -o $@
 
-clean		:
-			rm -r $(OBJSDIR)
+directory		:
+			@mkdir -p $(BUILDDIR)
+			@mkdir -p $(OBJSDIR)
 
-fclean		:	clean
-			rm -r $(BUILDDIR)
 
-re		:	fclean all
+${LIB}			:
+			@make -C llst
+			@make clean -C llst
+
+clean			:
+			@rm -rf $(OBJSDIR)
+
+fclean			:	clean
+			@make fclean -C llst
+			@rm -rf $(BUILDDIR)
+
+re				:	fclean all
+
+.PHONY : re fclean clean all directory $(NAME) $(OBJSDIR)

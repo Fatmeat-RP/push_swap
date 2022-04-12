@@ -6,14 +6,16 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:32:14 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/12 16:27:05 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:35:51 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stack.h>
 
-t_llst	*lst_init(t_llst *linked_list, t_cons del)
+t_llst	*lst_init(t_cons del)
 {
+	t_llst *linked_list;
+
 	linked_list = malloc(sizeof(t_llst));
 	if (!linked_list)
 		return (NULL);

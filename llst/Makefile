@@ -31,23 +31,24 @@ HEADERS			=	$(HEADERDIR)$(HEADER)
 HFLAGS		=	-Iinclude
 
 
-$(NAME)			:	$(OBJS) directory
-			ar rcs $(NAME) $(OBJS)
+$(NAME)			:	directory $(OBJS)
+			@ar rcs $(NAME) $(OBJS)
 
 $(OBJSDIR)%.o 	:	$(SRCSDIR)%.c ${HEADERS}
-			mkdir -p $(OBJSDIR)
-			$(CC) $(FLAGS) ${HFLAGS} -c $< -o $@
+			@$(CC) $(CFLAGS) ${HFLAGS} -c $< -o $@
 
 directory		:
-			mkdir -p $(BUILDDIR)
-			mkdir -p $(OBJSDIR)
+			@mkdir -p $(BUILDDIR)
+			@mkdir -p $(OBJSDIR)
 
 all				:	 $(NAME)
 
 clean			:
-			rm -r $(OBJSDIR)
+			@rm -rf $(OBJSDIR)
 
 fclean			:	clean
-			rm -r $(BUILDDIR)
+			@rm -rf $(BUILDDIR)
 
 re				:	fclean all
+
+.PHONY : re fclean clean all directory $(NAME) $(OBJSDIR)

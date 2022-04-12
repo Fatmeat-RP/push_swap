@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:36:01 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/12 16:33:31 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/12 17:39:07 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,26 +60,25 @@ struct s_llst
 	t_cons	del;
 	t_node	*first;
 	t_node	*last;
-	t_ui64	size;
+	size_t	size;
 };
 
 /* ************************************************************************** */
 
-t_stack		*lst_lstlast(t_stack *stack);
-t_stack		*lst_new(int content);
+t_llst		*lst_init(t_cons del);
+t_node 		*node_init(t_node *node);
+t_node		*ft_lstlast(t_node *node);
+t_node		*new_node(void *value);
+t_node		*new_node_2(void *elem, t_node *next, t_cons delete);
+t_stack		*stack_init(t_stack *stack);
 void		lst_clear(t_stack *lst, void (*del)(void*));
-void		lst_add_front(t_stack *lst, t_stack *new);
-void		lst_add_back(t_stack *lst, t_stack *new);
-void		lst_delone(t_stack *lst, void (*del)(void*));
-int			shift(t_stack *stack);
-int			reverseshift(t_stack *stack);
+void		ft_lstadd_front(t_llst *linked_list, t_node *new);
+void		ft_lstadd_back(t_llst *linked_list, t_node *new);
 int			ft_lstsize(t_node *node);
 void		lst_foreach(t_llst *linked_list, t_cons fun);
 void		lst_foreachduo(t_llst *linked_list, t_dcons fun, void *param);
 void		node_clear(t_node *node);
 void		llst_clear(t_llst *linked_list);
-t_node		*new_node(void *value);
-t_node		*new_node_2(void *elem, t_node *next, t_cons delete);
 int			lst_not_empty(t_llst *linked_list);
 int			lst_is_empty(t_llst *linked_list);
 
