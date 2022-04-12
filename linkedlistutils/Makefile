@@ -14,7 +14,15 @@ HEADERDIR		=	include/
 
 HEADER			=	stack.h
 
-SRCS			= 	$(wildcard $(SRCSDIR)*.c)
+SRCS			= 	$(SRCSDIR)init.c			\
+					$(SRCSDIR)llst_addback.c	\
+					$(SRCSDIR)llst_addfront.c	\
+					$(SRCSDIR)llst_clear.c		\
+					$(SRCSDIR)llst_empty.c		\
+					$(SRCSDIR)llst_size.c		\
+					$(SRCSDIR)lst_foreach.c		\
+					$(SRCSDIR)new_node.c		\
+					$(SRCSDIR)stack_index.c		\
 
 OBJS			=	$(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 
