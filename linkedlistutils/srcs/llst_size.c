@@ -9,7 +9,7 @@ t_node	*ft_lstlast(t_node *node)
 	return (node);
 }
 
-int	*ft_lstsize(t_node *node)
+int	ft_lstsize(t_node *node)
 {
 	int	i;
 

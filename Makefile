@@ -11,39 +11,32 @@ CC				=	gcc
 
 CFLAGS			=	-Wall -Wextra -Werror
 
-LIBS			=	-l./libft/build
-
 HEADERDIR		=	include/
 
-HEADER			=	${HEADERDIR}fractol.h
+HEADER			=	
 
 OBJS			=	$(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 
 SRCS			= 	$(wildcard $(SRCSDIR)*.c)
 
-##############################################################
-####################### MAKE RULES ###########################
-##############################################################
-
 $(NAME)		:	$(OBJS)
-			mkdir -p $(BUILDDIR)
-			make -C libft
-			make clean -C libft
-			$(CC1)
+			$(CC)
 
 $(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c $(HEADER)
+			$(CC) 
+
+directory	:
+			mkdir -p $(BUILDDIR)
 			mkdir -p $(OBJSDIR)
-			$(CC2)
 
-all		:	mandatory
+all			: mandatory
 
-mandatory	:	$(NAME)
+mandatory	:	$(NAME)	: 	directory
 
 clean		:
-			rm -rf $(OBJSDIR)
+			rm -r $(OBJSDIR)
 
 fclean		:	clean
-			make fclean -C libft
-			rm -rf $(BUILDDIR)
+			rm -r $(BUILDDIR)
 
 re		:	fclean all

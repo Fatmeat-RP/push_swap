@@ -19,5 +19,5 @@ t_node	*new_node_2(void *elem, t_node *next, t_cons delete)
 
 t_node	*new_node(void *value)
 {
-	return (lst_new_entry_2(value, NULL, NULL));
+	return (new_node_2(value, NULL, NULL));
 }
