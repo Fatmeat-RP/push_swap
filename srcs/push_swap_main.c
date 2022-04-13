@@ -16,6 +16,11 @@ int	main(int ac, char **av)
 {
 	t_llst	*stack_a;
 
+	if (ac == 1)
+	{
+		write (2, "need at least one arguments with two elements\n", 46);
+		return (-1);
+	}
 	stack_a = args_to_stack_a(ac, av);
 	if (!stack_a)
 	{

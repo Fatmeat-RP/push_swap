@@ -34,6 +34,7 @@ int	sorted(t_node *stack, size_t stack_size)
 
 	i = 0;
 	tmp = stack;
+	(void)tmp;
 	while (stack->next && (i < stack_size))
 	{
 		if (stack->elem->index > stack->next->elem->index)

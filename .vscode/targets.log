@@ -1,0 +1,298 @@
+make.exe all -f F:\workspace\game\Makefile --print-data-base --no-builtin-variables --no-builtin-rules --question
+# GNU Make 3.81
+# Copyright (C) 2006  Free Software Foundation, Inc.
+# Ceci est un logiciel libre ; voir le source pour les conditions de copie.
+# Il n'y a PAS de garantie ; tant pour une utilisation COMMERCIALE que pour
+# R�PONDRE � UN BESOIN PARTICULIER.
+
+# Ce logiciel est construit pour i386-pc-mingw32
+ 
+make.exe: F:\workspace\game\Makefile: No such file or directory
+
+
+# Base de donn�es de Make, imprim�e le Wed Apr 13 21:39:55 2022
+
+# Variables
+
+# environnement
+VSCODE_GIT_ASKPASS_MAIN = c:\Program Files\VSCodium\resources\app\extensions\git\dist\askpass-main.js
+# automatique
+<D = $(patsubst %/,%,$(dir $<))
+# automatique
+?F = $(notdir $?)
+# environnement
+WSLENV = ELECTRON_RUN_AS_NODE/w:ELECTRON_RUN_AS_NODE/w:
+# environnement
+ELECTRON_NO_ATTACH_CONSOLE = 1
+# makefile
+MAKEFLAGS = Rrp
+# environnement
+VSCODE_LOG_NATIVE = false
+# automatique
+?D = $(patsubst %/,%,$(dir $?))
+# automatique
+@D = $(patsubst %/,%,$(dir $@))
+# environnement
+HOMEDRIVE = C:
+# automatique
+@F = $(notdir $@)
+# automatique
+^D = $(patsubst %/,%,$(dir $^))
+# makefile
+CURDIR := c:/Users/gamin/.workspace/push_swap
+# d�faut
+SHELL := C:/Program Files/Git/usr/bin/sh.exe
+# environnement
+CLION = C:\Program Files\JetBrains\CLion 2019.2.3\bin;
+# environnement
+WINDIR = C:\Windows
+# environnement
+VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
+# environnement
+VBOX_MSI_INSTALL_PATH = C:\Program Files\Oracle\VirtualBox\
+# environnement
+ONEDRIVE = C:\Users\gamin\OneDrive
+# environnement
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# makefile
+MAKEFILE_LIST := 
+# environnement
+FPS_BROWSER_USER_PROFILE_STRING = Default
+# environnement
+TMP = C:\Users\gamin\AppData\Local\Temp
+# environnement
+VSCODE_VERBOSE_LOGGING = true
+# environnement
+PROGRAMW6432 = C:\Program Files
+# environnement
+PROGRAMDATA = C:\ProgramData
+# environnement
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-cadef6e8-ad6b-4e34-b03c-df8ede147ce2-sock
+# environnement
+VSCODE_CWD = C:\Users\gamin\.workspace\push_swap
+# environnement
+PATH = C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\VSCodium\bin;C:\mingw64\bin;C:\Program Files (x86)\GnuWin32\bin;C:\Users\gamin\AppData\Local\Microsoft\WindowsApps;;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\bin;;C:\Program Files\JetBrains\CLion 2019.2.3\bin;
+# environnement
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# environnement
+PROCESSOR_ARCHITECTURE = x86
+# environnement
+USERPROFILE = C:\Users\gamin
+# environnement
+ALLUSERSPROFILE = C:\ProgramData
+# environnement
+VSCODE_LOG_STACK = false
+# environnement
+NUMBER_OF_PROCESSORS = 16
+# environnement
+ELECTRON_RUN_AS_NODE = 1
+# d�faut
+.FEATURES := target-specific order-only second-expansion else-if archives
+# automatique
+%F = $(notdir $%)
+# environnement
+VSCODE_PIPE_LOGGING = true
+# environnement
+COMPUTERNAME = EMILIA
+# environnement
+PROGRAMFILES = C:\Program Files (x86)
+# environnement
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environnement
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environnement
+USERNAME = gamin
+# environnement
+PUBLIC = C:\Users\Public
+# environnement
+VSCODE_AMD_ENTRYPOINT = vs/workbench/services/extensions/node/extensionHostProcess
+# environnement
+VSCODE_CLI = 1
+# environnement
+VSCODE_CODE_CACHE_PATH = C:\Users\gamin\AppData\Roaming\VSCodium\CachedData\ccbaa2d27e38e5afa3e5c21c1c7bef4657064247
+# environnement
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# environnement
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# environnement
+LOGONSERVER = \\EMILIA
+# environnement
+ONEDRIVECONSUMER = C:\Users\gamin\OneDrive
+# environnement
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# environnement
+USERDOMAIN = EMILIA
+# environnement
+MAKELEVEL := 0
+# environnement
+INTELLIJ IDEA COMMUNITY EDITION = C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2021.3.2\bin;
+# environnement
+COLORTERM = truecolor
+# d�faut
+MAKE = $(MAKE_COMMAND)
+# d�faut
+MAKECMDGOALS := all
+# environnement
+JAVA_HOME = C:\jdk-17.0.1\bin
+# d�faut
+MAKE_VERSION := 3.81
+# makefile
+.DEFAULT_GOAL := 
+# environnement
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# automatique
+%D = $(patsubst %/,%,$(dir $%))
+# environnement
+LOCALAPPDATA = C:\Users\gamin\AppData\Local
+# environnement
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\Windows\system32\WindowsPowerShell\v1.0\Modules
+# d�faut
+MAKE_COMMAND := make.exe
+# environnement
+PROCESSOR_ARCHITEW6432 = AMD64
+# environnement
+VSCODE_GIT_ASKPASS_EXTRA_ARGS = 
+# environnement
+TERM_PROGRAM = vscode
+# d�faut
+.VARIABLES := 
+# automatique
+*F = $(notdir $*)
+# environnement
+PROCESSOR_IDENTIFIER = AMD64 Family 23 Model 113 Stepping 0, AuthenticAMD
+# environnement
+OS = Windows_NT
+# environnement
+VSCODE_IPC_HOOK = \\.\pipe\bbe117d32201b6383437839c0ff8f499-1.62.3-main-sock
+# environnement
+VSCODE_GIT_ASKPASS_NODE = C:\Program Files\VSCodium\VSCodium.exe
+# environnement
+HOMEPATH = \Users\gamin
+# environnement
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environnement
+PROMPT = $P$G
+# environnement
+MFLAGS = -Rrp
+# automatique
+*D = $(patsubst %/,%,$(dir $*))
+# environnement
+TERM_PROGRAM_VERSION = 1.62.3
+# environnement
+SYSTEMROOT = C:\Windows
+# automatique
++D = $(patsubst %/,%,$(dir $+))
+# automatique
++F = $(notdir $+)
+# environnement
+APPDATA = C:\Users\gamin\AppData\Roaming
+# environnement
+TEMP = C:\Users\gamin\AppData\Local\Temp
+# environnement
+COMSPEC = C:\Windows\system32\cmd.exe
+# environnement
+GIT_ASKPASS = c:\Program Files\VSCodium\resources\app\extensions\git\dist\askpass.sh
+# d�faut
+MAKEFILES := 
+# automatique
+<F = $(notdir $<)
+# environnement
+LC_ALL = C
+# automatique
+^F = $(notdir $^)
+# d�faut
+SUFFIXES := 
+# environnement
+SYSTEMDRIVE = C:
+# environnement
+SESSIONNAME = Console
+# environnement
+PROCESSOR_REVISION = 7100
+# environnement
+VSCODE_GIT_IPC_HANDLE = \\.\pipe\vscode-git-de455da082-sock
+# environnement
+LANG = C
+# environnement
+PROCESSOR_LEVEL = 23
+# environnement
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
+# environnement
+VSCODE_PID = 1324
+# environnement
+USERDOMAIN_ROAMINGPROFILE = EMILIA
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=103/1024=10%, Refait le hachage=0, Collisions=10/117=9%
+
+# Valeurs de variable avec mod�le sp�cifique
+
+# pas de valeurs de variable avec mod�le sp�cifique
+
+# R�pertoires
+
+# C:\Windows\System32\WindowsPowerShell\v1.0\ (p�riph�rique C:/Windows/System32/WindowsPowerShell/v1.0/, mtime 1642237178): 32 fichiers, non impossibilit�s.
+# C:\Windows\System32\Wbem (p�riph�rique C:/Windows/System32/Wbem, mtime 1642237178): 172 fichiers, non impossibilit�s.
+# . (p�riph�rique c:/Users/gamin/.workspace/push_swap, mtime 1649791135): 12 fichiers, non impossibilit�s.
+# C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common (p�riph�rique C:/Program Files (x86)/NVIDIA Corporation/PhysX/Common, mtime 1636251399): 10 fichiers, non impossibilit�s.
+# C:\Program Files\Git\mingw64\bin (p�riph�rique C:/Program Files/Git/mingw64/bin, mtime 1636252359): 112 fichiers, non impossibilit�s.
+# C:\Windows\System32\OpenSSH\ : statut indisponible.
+# C:\Program Files (x86)\Common Files\Oracle\J 
+make.exe: *** Pas de r�gle pour fabriquer la cible � F:\workspace\game\Makefile �. Arr�t.
+
+ava\javapath (p�riph�rique C:/Program Files (x86)/Common Files/Oracle/Java/javapath, mtime 1642765956): 5 fichiers, non impossibilit�s.
+# C:\Windows (p�riph�rique C:/Windows, mtime 1649788789): 112 fichiers, non impossibilit�s.
+# C:\Program Files\Git\usr\bin (p�riph�rique C:/Program Files/Git/usr/bin, mtime 1636252359): 314 fichiers, non impossibilit�s jusqu'ici.
+# C:\Program Files\Git\cmd (p�riph�rique C:/Program Files/Git/cmd, mtime 1636252359): 8 fichiers, non impossibilit�s.
+# C:\Windows\system32 (p�riph�rique C:/Windows/system32, mtime 1649878493): 2995 fichiers, non impossibilit�s.
+# C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR (p�riph�rique C:/Program Files/NVIDIA Corporation/NVIDIA NvDLISR, mtime 1636251054): 5 fichiers, non impossibilit�s.
+
+# 3777 fichiers, non impossibilit�s dans 12 r�pertoires.
+
+# R�gles Implicites
+
+# Pas de r�gles implicites.
+
+# Fichiers
+
+# Pas une cible :
+all:
+#  Cible provenant de la ligne de commande.
+#  Recherche de r�gle implicite n'a pas �t� effectu�e.
+#  Heure de modification jamais v�rifi�e.
+#  Fichier n'a pas �t� mis � jour.
+
+# Pas une cible :
+.DEFAULT:
+#  Recherche de r�gle implicite n'a pas �t� effectu�e.
+#  Heure de modification jamais v�rifi�e.
+#  Fichier n'a pas �t� mis � jour.
+
+# Pas une cible :
+F:\workspace\game\Makefile:
+#  Recherche de r�gle implicite effectu�e.
+# Fichier inexistant.
+#  Fichier n'a pas �t� mis � jour.
+# variables initialis�es dans les statistiques de table de hachage:
+# Charge=0/32=0%, Refait le hachage=0, Collisions=0/0=0%
+
+# Pas une cible :
+.SUFFIXES:
+#  Recherche de r�gle implicite n'a pas �t� effectu�e.
+#  Heure de modification jamais v�rifi�e.
+#  Fichier n'a pas �t� mis � jour.
+
+# statistiques des fichiers de la table de hachage:
+# Charge=4/1024=0%, Refait le hachage=0, Collisions=0/15=0%
+# Chemins de Recherche VPATH
+
+# Pas de chemins de recherche � vpath �.
+
+# Pas de chemin de recherche g�n�ral (variable � VPATH �).
+
+# # of strings in strcache: 1
+# # of strcache buffers: 1
+# strcache size: total = 4096 / max = 4096 / min = 4096 / avg = 4096
+# strcache free: total = 4069 / max = 4069 / min = 4069 / avg = 4069
+
+# Fin de la base de donn�es de Make le Wed Apr 13 21:39:55 2022
+
+ 
