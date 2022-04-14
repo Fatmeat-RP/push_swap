@@ -27,19 +27,18 @@
 //	}
 //}
 
-int	sorted(t_node *stack, size_t stack_size)
+int	sorted(t_node *node, size_t stack_size)
 {
-	t_node	*tmp;
 	size_t	i;
 
 	i = 0;
-	tmp = stack;
-	(void)tmp;
-	while (stack->next && (i < stack_size))
+	if (stack_size <= 1)
+		return (-1);
+	while (node->next && (i <= stack_size))
 	{
-		if (stack->elem->index > stack->next->elem->index)
+		if (node->elem > node->next->elem)
 			return (-1);
-		stack = stack->next;
+		node = node->next;
 		i++;
 	}
 	return (1);

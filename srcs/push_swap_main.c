@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:58 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/14 17:55:33 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/14 19:28:22 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,18 +27,20 @@ int	main(int ac, char **av)
 		write(2, "Error, couldn't init the stack_a\n", 34);
 		return (-1);
 	}
-	if (sorted(stack_a->first, stack_a->size) || stack_a->size <= 0)
-	{
-		write(2, "stack is already sorted or null\n", 33);
-		//llst_clear(stack_a);
-		return (0);
-	}
-	if (check_doublon(stack_a))
+	if (check_doublon(stack_a) == -1)
 	{
 		write(2, "Error, duplicate element\n", 26);
 		llst_clear(stack_a);
 		return (-1);
 	}
+	if (sorted(stack_a->first, stack_a->size) >= 0)
+	{
+		write(2, "stack is already sorted or null\n", 33);
+		if (stack_a->first)
+			llst_clear(stack_a);
+		return (0);
+	}
+	llst_clear(stack_a);
 	return (0);
 }
 
@@ -54,19 +56,18 @@ int	check_doublon(t_llst *stack_a)
 
 	psa = stack_a->first;
 	tmp = psa;
-	while (stack_a->first->next != NULL)
+	while (psa->next != NULL)
 	{
-		tmp = psa;
-		while (tmp->next != NULL)
+		tmp = psa->next;
+		while (tmp != NULL)
 		{
-			if (tmp->elem == stack_a->first->elem
-				&& tmp->elem->index != stack_a->first->elem->index)
-				return (stack_a->first->elem->elem);
+			if (tmp->elem == psa->elem)
+				return (-1);
 			tmp = tmp->next;
 		}
-		stack_a->first = stack_a->first->next;
+		psa = psa->next;
 	}
-	return (0);
+	return (1);
 }
 
 t_llst	*args_to_stack_a(int ac, char **av)
@@ -86,14 +87,13 @@ t_llst	*args_to_stack_a(int ac, char **av)
 			write (2, "Error\n", 7);
 			return (NULL);
 		}
-		if (avp[i] == '\0')
+		else if (avp[i] == '\0')
 		{
 			avp[i] = ' ';
 			null_counter++; 
 		}
 		i++;
 	}
-	write (1, avp, i);
 	stack_a = stack_creator(avp, i);
 	return (stack_a);
 }

@@ -13,10 +13,13 @@ int	ft_lstsize(t_node *node)
 {
 	int	i;
 
-	i = 0;
+	i = 1;
 	if (!node)
 		return (-1);
-	while (node->next)
+	while (node->next != NULL)
+	{
+		node = node->next;
 		i++;
+	}
 	return (i);
 }
