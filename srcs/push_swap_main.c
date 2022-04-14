@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:58 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/12 18:20:47 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/14 17:55:33 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	t_llst	*stack_a;
 
-	if (ac == 1)
+	if (ac <= 1)
 	{
 		write (2, "need at least one arguments with two elements\n", 46);
 		return (-1);

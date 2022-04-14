@@ -30,8 +30,9 @@ HEADERS			=	$(HEADERDIR)$(HEADER)
 
 HFLAGS		=	-Iinclude
 
+all				:	directory $(NAME)
 
-$(NAME)			:	directory $(OBJS)
+$(NAME)			:	$(OBJS)
 			@ar rcs $(NAME) $(OBJS)
 
 $(OBJSDIR)%.o 	:	$(SRCSDIR)%.c ${HEADERS}
@@ -41,8 +42,6 @@ directory		:
 			@mkdir -p $(BUILDDIR)
 			@mkdir -p $(OBJSDIR)
 
-all				:	 $(NAME)
-
 clean			:
 			@rm -rf $(OBJSDIR)
 
@@ -50,5 +49,3 @@ fclean			:	clean
 			@rm -rf $(BUILDDIR)
 
 re				:	fclean all
-
-.PHONY : re fclean clean all directory $(NAME) $(OBJSDIR)

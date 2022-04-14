@@ -23,26 +23,25 @@ OBJS			=	$(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 
 HEADERS			=	$(HEADERDIR)$(HEADER)
 
-LIB			=	llst/build/llst.a
+HFLAGS			=	-Iinclude -Illst/include
 
-HFLAGS		=	-Iinclude -Illst/include
-
-all				:	$(NAME)
-
-$(NAME)			:	$(OBJS)
-			@$(CC) $(OBJS) -o $(NAME) $(LIB)
-
-$(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c directory $(LIB)
-			@$(CC) $(CFLAGS) ${HFLAGS} -c $< -o $@
+LIB				=	llst/build/llst.a
 
 directory		:
 			@mkdir -p $(BUILDDIR)
 			@mkdir -p $(OBJSDIR)
 
-
 ${LIB}			:
-			@make -C llst
+			make -C llst
 			@make clean -C llst
+
+$(NAME)			:	$(OBJS) $(LIB)
+			$(CC) $(OBJS) -o $(NAME) ${LIB}
+
+$(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c directory
+			$(CC) $(CFLAGS) ${HFLAGS} -c $< -o $@
+
+all				:	${LIB} directory $(NAME)
 
 clean			:
 			@rm -rf $(OBJSDIR)
@@ -52,5 +51,3 @@ fclean			:	clean
 			@rm -rf $(BUILDDIR)
 
 re				:	fclean all
-
-.PHONY : re fclean clean all directory $(NAME) $(OBJSDIR)
