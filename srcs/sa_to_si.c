@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:54 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/14 18:42:58 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/14 20:11:52 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,4 +67,21 @@ t_return	*giga_atoi(char	*s)
 	ret->r1 = (void *)i;
 	ret->r2 = (void *)(res * maybe_neg);
 	return (ret);
+}
+
+int	sorted(t_node *node, size_t stack_size)
+{
+	size_t	i;
+
+	i = 0;
+	if (stack_size <= 1)
+		return (-1);
+	while (node->next && (i <= stack_size))
+	{
+		if (node->elem > node->next->elem)
+			return (-1);
+		node = node->next;
+		i++;
+	}
+	return (1);
 }
