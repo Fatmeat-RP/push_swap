@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   sort_two.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cben-bar <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/25 21:33:49 by cben-bar          #+#    #+#             */
-/*   Updated: 2022/02/25 21:37:22 by cben-bar         ###   ########lyon.fr   */
+/*   Created: 2022/04/14 19:31:19 by acarle-m          #+#    #+#             */
+/*   Updated: 2022/04/14 19:31:25 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../include/push_swap.h"
+#include <push_swap.h>
 
 void	sort_two(t_list **stack_a)
 {
