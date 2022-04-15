@@ -11,12 +11,12 @@ void	mina_top(t_llst *stack_a)
 	node = node_min(stack_a);
 	if (node_position(stack_a, node) < (stack_a->size / 2))
 	{
-		while ((*stack_a)->elem != min)
-			ra(stack_a, 1);
+		while ((int)stack_a->first->elem != min)
+			ra(stack_a);
 		return ;
 	}
-	while ((*stack_a)->elem != min)
-		rra(stack_a, 1);
+	while ((int)stack_a->first->elem != min)
+		rra(stack_a);
 }
 
 int	minstack(t_llst *stack_a)
@@ -24,16 +24,16 @@ int	minstack(t_llst *stack_a)
 	t_node	*beg;
 	int		min;
 
-	beg = *stack_a;
-	min = beg->elem;
+	beg = stack_a->first;
+	min = (int)beg->elem;
 	while (beg->next)
 	{
-		if (beg->elem < min)
-			min = beg->elem;
+		if ((int)beg->elem < min)
+			min = (int)beg->elem;
 		beg = beg->next;
 	}
-	if (beg->elem < min)
-		min = beg->elem;
+	if ((int)beg->elem < min)
+		min = (int)beg->elem;
 	return (min);
 }
 
@@ -43,7 +43,7 @@ size_t	node_position(t_llst *stack_a, t_node *node)
 	size_t	i;
 
 	i = 0;
-	beg = *stack_a;
+	beg = stack_a->first;
 	while (beg->next)
 	{
 		if (beg == node)
@@ -61,7 +61,7 @@ t_node	*node_min(t_llst *stack_a)
 	t_node	*beg;
 	t_node	*min;
 
-	beg = *stack_a;
+	beg = stack_a->first;
 	min = beg;
 	while (beg->next)
 	{
@@ -77,9 +77,9 @@ t_node	*node_min(t_llst *stack_a)
 long long	max_index(t_llst *stack_a)
 {
 	t_node	*beg;
-	int		max;
+	size_t	max;
 
-	beg = *stack_a;
+	beg = stack_a->first;
 	max = beg->index;
 	while (beg->next)
 	{

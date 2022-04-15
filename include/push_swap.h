@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:09:36 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/12 18:27:24 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/15 17:06:31 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,9 @@ struct s_return
 	void		*r5;
 };
 
-t_return		*giga_atoi(char	*s);
+/* utils and parsing */
+
+t_return	*giga_atoi(char	*s);
 t_llst	 	*stack_creator(char *avp, size_t size);
 t_llst		*args_to_stack_a(int ac, char **av);
 t_llst		*atostack(char *s, size_t size);
@@ -41,6 +43,28 @@ int			check_doublon(t_llst *stack_a);
 int			check_char(char c);
 int			sorted(t_node *stack, size_t stack_size);
 int			minstack(t_llst *stack_a);
-void			mina_top(t_llst *stack_a);
+void		mina_top(t_llst *stack_a);
+int			sort(t_llst *stack_a, t_llst *stack_b);
+t_llst		*init_stack_b(void);
+void		sort_two(t_llst *stack_a);
+void		sort_three(t_llst *stack_a);
+void		sort_five(t_llst *stack_a, t_llst *stack_b);
+void		sort_big_stack(t_llst *stack_a, t_llst *stack_b);
+
+/* move set */
+
+int	sa(t_llst *stack_a);
+int	pa(t_llst *stack_a, t_llst *stack_b);
+int	ra(t_llst *stack_a);
+int	rra(t_llst *stack_a);
+
+int	sb(t_llst *stack_b);
+int	pb(t_llst *stack_a, t_llst *stack_b);
+int	rb(t_llst *stack_b);
+int	rrb(t_llst *stack_b);
+
+int	ss(t_llst *stack_a, t_llst *stack_b);
+int	rr(t_llst *stack_a, t_llst *stack_b);
+int	rrr(t_llst *stack_a, t_llst *stack_b);
 
 #endif

@@ -1,29 +1,25 @@
 #include <push_swap.h>
 
-int	ss()
+int	ss(t_llst *stack_a, t_llst *stack_b)
 {
-	int	tmp;
-
-	if ((stack_b == NULL || stack_b->next == NULL)
-		|| (stack_a== NULL || stack_a->next == NULL))
-		return (-1);
-	tmp = stack_b->next;
-	stack_b->next = stack_b;
-	stack_b = tmp;
-	tmp = stack_a->next;
-	stack_a->next = stack_a;
-	stack_a = tmp;
+	sa(stack_a);
+	sb(stack_b);
+	write(1, "ss\n", 4);
 	return (0);
 }
 
-int	rr(t_stack stack_a, t_stack stack_b)
+int	rr(t_llst *stack_a, t_llst *stack_b)
 {
-	shiftstack(stack_a);
-	shiftstack(stack_b);
+	ra(stack_a);
+	rb(stack_b);
+	write(1, "rr\n", 4);
+	return (0);
 }
 
-int	rrr(t_stack stack_a, t_stack stack_b)
+int	rrr(t_llst *stack_a, t_llst *stack_b)
 {
-	reverse_shift_stack(stack_a);
-	reverse_shift_stack(stack_b);
+	rra(stack_a);
+	rrb(stack_b);
+	write(1, "rrr\n", 5);
+	return (0);
 }

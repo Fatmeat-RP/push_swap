@@ -23,7 +23,7 @@ t_llst	*init_index(t_llst *stack_a)
 		}
 		ref = ref->next;
 	}
-	return (*stack_a);
+	return (stack_a);
 }
 
 size_t	max_bit_len(long long nb)

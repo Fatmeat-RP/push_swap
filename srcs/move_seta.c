@@ -1,34 +1,66 @@
-int	sa(t_stack stack_a)
-{
-	int	tmp;
+#include <push_swap.h>
 
-	if (stack_b == NULL || stack_b->next == NULL)
-		return (-1);
-	tmp = stack_a->next;
-	stack_a->next = stack_a;
-	stack_a = tmp;
-}
-
-int	pa(t_stack stack_a)
+int	sa(t_llst *stack_a)
 {
-	if (push_front(stack_b, stack_a) == -1)
+	t_node	*tmp;
+
+	if (stack_a->size < 2)
 		return (-1);
-	write(1, "pa\n", 3);
+	tmp = stack_a->first;
+	stack_a->first = stack_a->first->next;
+	tmp->next = stack_a->first->next;
+	stack_a->first->next = tmp;
+	write(1, "sa\n", 4);
 	return (0);
 }
 
-int	ra(t_stack stack_a)
+int	pa(t_llst *stack_a, t_llst *stack_b)
 {
-	if (shiftstack(stack_a) == -1)
-		return (-1);
-	write(1, "ra\n", 3);
+	t_node	*b_start;
+
+	b_start = stack_b->first->next;
+	ft_lstadd_front(stack_a, stack_b->first);
+	stack_b->first = b_start;
+	stack_a->size += 1;
+	stack_b->size -= 1;
+	write(1, "pa\n", 4);
 	return (0);
 }
 
-int	rra(t_stack stack_a)
+int	ra(t_llst *stack_a)
 {
-	if (reverse_shift_stack(stack_a) == -1)
+	t_node	*one;
+	t_node	*two;
+	t_node	*last;
+
+	if (stack_a->size < 2)
 		return (-1);
-	write(1, "rra\n", 4);
+	two = stack_a->first->next;
+	one = stack_a->first;
+	last = stack_a->last;
+	last->next = one;
+	one->next = NULL;
+	stack_a->first = two;
+	write(1, "ra\n", 4);
+	return (0);
+}
+
+int	rra(t_llst *stack_a)
+{
+	t_node	*temp_second;
+	t_node	*temp_before_last;
+	t_node	*temp_last;
+
+	if (stack_a->size < 2)
+		return (-1);
+	temp_before_last = stack_a->first;
+	temp_last = stack_a->last;
+	temp_second = stack_a->first->next;
+	while (temp_before_last->next->next)
+		temp_before_last = temp_before_last->next;
+	temp_before_last->next = NULL;
+	temp_last->next = stack_a->first;
+	stack_a->first = temp_last;
+	write (1, "rra\n", 5);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:58 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/14 19:28:22 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/15 17:29:09 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int	main(int ac, char **av)
 {
 	t_llst	*stack_a;
+	t_llst	*stack_b;
 
 	if (ac <= 1)
 	{
@@ -30,7 +31,8 @@ int	main(int ac, char **av)
 	if (check_doublon(stack_a) == -1)
 	{
 		write(2, "Error, duplicate element\n", 26);
-		llst_clear(stack_a);
+		if (stack_a->first)
+			llst_clear(stack_a);
 		return (-1);
 	}
 	if (sorted(stack_a->first, stack_a->size) >= 0)
@@ -38,9 +40,24 @@ int	main(int ac, char **av)
 		write(2, "stack is already sorted or null\n", 33);
 		if (stack_a->first)
 			llst_clear(stack_a);
-		return (0);
+		return (-1);
 	}
-	llst_clear(stack_a);
+	stack_b = init_stack_b();
+	if (!stack_b)
+	{
+		write(2, "couldn't initialize stack b\n", 29);
+		llst_clear(stack_a);
+		return (-1);
+	}
+	if (!sort(stack_a, stack_b))
+	{
+//		llst_clear(stack_a);
+//		llst_clear(stack_b);
+		write(2, "couldn't sort stack a\n", 23);
+		return (-1);
+	}
+//	llst_clear(stack_a);	
+//	llst_clear(stack_b);
 	return (0);
 }
 

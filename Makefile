@@ -18,6 +18,11 @@ HEADER			=	stack.h
 SRCS			= 	$(SRCSDIR)push_swap_main.c		\
 					$(SRCSDIR)sa_to_si.c			\
 					$(SRCSDIR)sort.c				\
+					$(SRCSDIR)move_seta.c			\
+					$(SRCSDIR)move_setab.c			\
+					$(SRCSDIR)move_setb.c			\
+					$(SRCSDIR)utils.c				\
+					$(SRCSDIR)utils2.c				\
 
 OBJS			=	$(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 
