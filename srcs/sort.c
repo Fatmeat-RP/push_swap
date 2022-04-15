@@ -78,26 +78,28 @@ void	sort_five(t_list **stack_a, t_list **stack_b)
 	pa(stack_a, stack_b);
 }
 
-void	sort_big(t_stack *stack_a, t_stack *stack_b)
+void	sort_big_stack(t_list **stack_a, t_list **stack_b)
 {
-	int	i;
-	int	j;
-	int	num;
+	size_t	max_bit;
+	size_t	max_num;
+	size_t	i;
+	size_t	j;
 
+	max_bit = max_bit_len(max_index(stack_a));
+	max_num = list_len(*stack_a) - 1;
 	i = 0;
-	while (!sorted(stack_a, stack_a->size))
+	while (i < max_bit)
 	{
 		j = 0;
-		while(j < stack_a->size)
+		while (j < max_num + 1)
 		{
-			num = stack_a->elem;
-			if ((num >> i) & 1)
-				ra(stack_a);
+			if ((((*stack_a)->index >> i) & 1) == 1)
+				ra(stack_a, 1);
 			else
 				pb(stack_a, stack_b);
 			j++;
 		}
-		while (!empty(stack_b))
+		while (list_len(*stack_b) > 1)
 			pa(stack_a, stack_b);
 		i++;
 	}

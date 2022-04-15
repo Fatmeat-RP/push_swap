@@ -1,4 +1,6 @@
-ss
+#include <push_swap.h>
+
+int	ss()
 {
 	int	tmp;
 

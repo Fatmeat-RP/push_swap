@@ -28,12 +28,19 @@ struct s_return
 	void		*r5;
 };
 
-t_return	*giga_atoi(char	*s);
+t_return		*giga_atoi(char	*s);
 t_llst	 	*stack_creator(char *avp, size_t size);
 t_llst		*args_to_stack_a(int ac, char **av);
 t_llst		*atostack(char *s, size_t size);
+t_llst		*init_index(t_llst *stack_a);
+t_node		*node_min(t_llst *stack_a);
+long long	max_index(t_llst *stack_a);
+size_t		max_bit_len(long long nb);
+size_t		node_position(t_llst *stack_a, t_node *node);
 int			check_doublon(t_llst *stack_a);
 int			check_char(char c);
 int			sorted(t_node *stack, size_t stack_size);
+int			minstack(t_llst *stack_a);
+void			mina_top(t_llst *stack_a);
 
 #endif

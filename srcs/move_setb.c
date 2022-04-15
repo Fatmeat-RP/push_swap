@@ -1,3 +1,5 @@
+#include <push_swap.h>
+
 int	sb(t_stack *stack_b)
 {
 	t_stack	tmp;
