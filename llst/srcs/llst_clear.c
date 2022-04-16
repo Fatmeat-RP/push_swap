@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 15:17:40 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/14 19:27:28 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 14:49:41 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	llst_clear(t_llst *linked_list)
 	{
 		tmp = node;
 		node = node->next;
+		if (tmp)
 		free(tmp);
 	}
 	free(linked_list);

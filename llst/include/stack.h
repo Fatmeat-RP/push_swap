@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:36:01 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 14:29:31 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 14:36:56 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ typedef void (*t_cons)(void *);
 struct s_node
 {
 	t_node	*next;
-	long 	elem;
+	int 	elem;
 	size_t	index;
 };
 

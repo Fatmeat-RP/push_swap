@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 19:31:14 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 12:37:15 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 15:54:48 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	sort(t_llst *stack_a, t_llst *stack_b)
 
 void	sort_two(t_llst *stack_a)
 {
-	sa(stack_a);
+	sa(stack_a, 1);
 }
 
 void	sort_three(t_llst *stack_a)
@@ -44,40 +44,40 @@ void	sort_three(t_llst *stack_a)
 	mid = (int)stack_a->first->next->elem;
 	end = (int)stack_a->first->next->next->elem;
 	if (top > mid && top < end && mid < end)
-		sa(stack_a);
+		sa(stack_a, 1);
 	else if (top > mid && top > end && mid > end)
 	{
-		sa(stack_a);
-		rra(stack_a);
+		sa(stack_a, 1);
+		rra(stack_a, 1);
 	}
 	else if (top > mid && top > end && mid < end)
-		ra(stack_a);
+		ra(stack_a, 1);
 	else if (top < mid && top < end && mid > end)
 	{
-		sa(stack_a);
-		ra(stack_a);
+		sa(stack_a, 1);
+		ra(stack_a, 1);
 	}
 	else if (top < mid && top > end && mid > end)
-		rra(stack_a);
+		rra(stack_a, 1);
 }
 
 void	sort_five(t_llst *stack_a, t_llst *stack_b)
 {
 	if (stack_a->size == 5)
 	{
-		mina_top(stack_a);
-		pb(stack_a, stack_b);
-		mina_top(stack_a);
-		pb(stack_a, stack_b);
+		min_top(stack_a);
+		pb(stack_a, stack_b, 1);
+		min_top(stack_a);
+		pb(stack_a, stack_b, 1);
 		sort_three(stack_a);
-		pa(stack_a, stack_b);
-		pa(stack_a, stack_b);
+		pa(stack_a, stack_b, 1);
+		pa(stack_a, stack_b, 1);
 		return ;
 	}
-	mina_top(stack_a);
-	pb(stack_a, stack_b);
+	min_top(stack_a);
+	pb(stack_a, stack_b, 1);
 	sort_three(stack_a);
-	pa(stack_a, stack_b);
+	pa(stack_a, stack_b, 1);
 }
 
 void	sort_big_stack(t_llst *stack_a, t_llst *stack_b)
@@ -96,19 +96,13 @@ void	sort_big_stack(t_llst *stack_a, t_llst *stack_b)
 		while (j < max_num && stack_a->first)
 		{
 			if ((stack_a->first->index >> i) & 1)
-			{
-				ra(stack_a);
-			}
+				ra(stack_a, 1);
 			else
-			{
-				pb(stack_a, stack_b);
-			}
+				pb(stack_a, stack_b, 1);
 			j++;
 		}
 		while (stack_b->size > 0)
-		{
-			pa(stack_a, stack_b);
-		}
+			pa(stack_a, stack_b, 1);
 		i++;
 	}
 }

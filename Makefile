@@ -15,6 +15,8 @@ HEADERDIR		=	include/
 
 HEADER			=	stack.h
 
+SAN				=	#-g -fsanitize=address
+
 SRCS			= 	$(SRCSDIR)push_swap_main.c		\
 					$(SRCSDIR)sa_to_si.c			\
 					$(SRCSDIR)sort.c				\
@@ -43,7 +45,7 @@ ${LIB}			:
 			@make clean -C llst
 
 $(NAME)			:	$(OBJS)
-			$(CC) -g -fsanitize=address ${CFLAGS} $(OBJS) -o $(NAME) $(LIB)
+			$(CC) ${SAN} ${CFLAGS} $(OBJS) -o $(NAME) $(LIB)
 
 $(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c $(LIB) directory
 			$(CC) $(CFLAGS) ${HFLAGS} -c $< -o $@

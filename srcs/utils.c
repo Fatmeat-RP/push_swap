@@ -1,23 +1,22 @@
 #include <push_swap.h>
 
-void	mina_top(t_llst *stack_a)
+void	min_top(t_llst *stack_a)
 {
 	int		min;
 	t_node	*node;
 
 	if (stack_a->size < 1)
 		return ;
-	write(1, "mina\n", 6);
 	min = minstack(stack_a);
 	node = node_min(stack_a);
 	if (node_position(stack_a, node) < (stack_a->size / 2))
 	{
-		while ((int)stack_a->first->elem != min)
-			ra(stack_a);
+		while (stack_a->first->elem != min)
+			ra(stack_a, 1);
 		return ;
 	}
-	if ((int)stack_a->first->elem != min)
-		rra(stack_a);
+	while (stack_a->first->elem != min)
+		rra(stack_a, 1);
 }
 
 int	minstack(t_llst *stack_a)

@@ -1,6 +1,6 @@
 #include <push_swap.h>
 
-int	sa(t_llst *stack_a)
+int	sa(t_llst *stack_a, int p)
 {
 	t_node	*tmp;
 
@@ -10,11 +10,12 @@ int	sa(t_llst *stack_a)
 	stack_a->first = stack_a->first->next;
 	tmp->next = stack_a->first->next;
 	stack_a->first->next = tmp;
-	write(1, "sa\n", 4);
+	if (p)
+		write(1, "sa\n", 3);
 	return (0);
 }
 
-int	pa(t_llst *stack_a, t_llst *stack_b)
+int	pa(t_llst *stack_a, t_llst *stack_b, int p)
 {
 	t_node	*b_start;
 
@@ -22,11 +23,12 @@ int	pa(t_llst *stack_a, t_llst *stack_b)
 	ft_lstadd_front(stack_a, stack_b->first);
 	stack_b->first = b_start;
 	stack_b->size -= 1;
-	write(1, "pa\n", 4);
+	if (p)
+		write(1, "pa\n", 3);
 	return (0);
 }
 
-int	ra(t_llst *stack_a)
+int	ra(t_llst *stack_a, int p)
 {
 	t_node	*one;
 	t_node	*two;
@@ -40,11 +42,12 @@ int	ra(t_llst *stack_a)
 	last->next = one;
 	one->next = NULL;
 	stack_a->first = two;
-	write(1, "ra\n", 4);
+	if (p)
+		write(1, "ra\n", 3);
 	return (0);
 }
 
-int	rra(t_llst *stack_a)
+int	rra(t_llst *stack_a, int p)
 {
 	t_node	*temp_second;
 	t_node	*temp_before_last;
@@ -60,6 +63,7 @@ int	rra(t_llst *stack_a)
 	temp_before_last->next = NULL;
 	temp_last->next = stack_a->first;
 	stack_a->first = temp_last;
-	write (1, "rra\n", 5);
+	if (p)
+		write (1, "rra\n", 4);
 	return (0);
 }

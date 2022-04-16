@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:54 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 14:18:51 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 15:10:06 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ t_llst	*stack_creator(char *avp, size_t size)
 	stack->size = ft_lstsize(stack->first);
 	stack->last = ft_lstlast(stack->first);
 	stack = init_index(stack);
-	printf("%ld \n", stack->first->elem);
 	return (stack);
 }
 

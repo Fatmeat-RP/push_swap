@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:09:36 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 14:32:22 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 15:42:42 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int			check_doublon(t_llst *stack_a);
 int			check_char(char c);
 int			sorted(t_node *stack, size_t stack_size);
 int			minstack(t_llst *stack_a);
-void		mina_top(t_llst *stack_a);
+void		min_top(t_llst *stack_a);
 int			sort(t_llst *stack_a, t_llst *stack_b);
 t_llst		*init_stack_b(void);
 void		sort_two(t_llst *stack_a);
@@ -54,15 +54,15 @@ void		set_up_index(t_llst *stack_a);
 
 /* move set */
 
-int	sa(t_llst *stack_a);
-int	pa(t_llst *stack_a, t_llst *stack_b);
-int	ra(t_llst *stack_a);
-int	rra(t_llst *stack_a);
+int	sa(t_llst *stack_a, int p);
+int	pa(t_llst *stack_a, t_llst *stack_b, int p);
+int	ra(t_llst *stack_a, int p);
+int	rra(t_llst *stack_a, int p);
 
-int	sb(t_llst *stack_b);
-int	pb(t_llst *stack_a, t_llst *stack_b);
-int	rb(t_llst *stack_b);
-int	rrb(t_llst *stack_b);
+int	sb(t_llst *stack_b, int p);
+int	pb(t_llst *stack_a, t_llst *stack_b, int p);
+int	rb(t_llst *stack_b, int p);
+int	rrb(t_llst *stack_b, int p);
 
 int	ss(t_llst *stack_a, t_llst *stack_b);
 int	rr(t_llst *stack_a, t_llst *stack_b);

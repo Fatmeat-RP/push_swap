@@ -1,6 +1,6 @@
 #include <push_swap.h>
 
-int	sb(t_llst *stack_b)
+int	sb(t_llst *stack_b, int p)
 {
 	t_node	*tmp;
 
@@ -10,11 +10,12 @@ int	sb(t_llst *stack_b)
 	stack_b->first = stack_b->first->next;
 	tmp->next = stack_b->first->next;
 	stack_b->first->next = tmp;
-	write(1, "sb\n", 4);
+	if (p)
+		write(1, "sb\n", 3);
 	return (0);
 }
 
-int	pb(t_llst *stack_a, t_llst *stack_b)
+int	pb(t_llst *stack_a, t_llst *stack_b, int p)
 {
 	t_node	*a_start;
 
@@ -22,11 +23,12 @@ int	pb(t_llst *stack_a, t_llst *stack_b)
 	ft_lstadd_front(stack_b, stack_a->first);
 	stack_a->first = a_start;
 	stack_a->size -= 1;
-	write(1, "pb\n", 4);
+	if (p)
+		write(1, "pb\n", 3);
 	return (0);
 }
 
-int	rb(t_llst *stack_b)
+int	rb(t_llst *stack_b, int p)
 {
 	t_node	*one;
 	t_node	*two;
@@ -40,11 +42,12 @@ int	rb(t_llst *stack_b)
 	last->next = one;
 	one->next = NULL;
 	stack_b->first = two;
-	write(1, "rb\n", 4);
+	if (p)
+		write(1, "rb\n", 3);
 	return (0);
 }
 
-int	rrb(t_llst *stack_b)
+int	rrb(t_llst *stack_b, int p)
 {
 	t_node	*temp_second;
 	t_node	*temp_before_last;
@@ -60,6 +63,7 @@ int	rrb(t_llst *stack_b)
 	temp_before_last->next = NULL;
 	temp_last->next = stack_b->first;
 	stack_b->first = temp_last;
-	write (1, "rrb\n", 5);
+	if (p)
+		write (1, "rrb\n", 4);
 	return (0);
 }
