@@ -20,9 +20,7 @@ SRCS			= 	$(SRCSDIR)init.c			\
 					$(SRCSDIR)llst_clear.c		\
 					$(SRCSDIR)llst_empty.c		\
 					$(SRCSDIR)llst_size.c		\
-					$(SRCSDIR)lst_foreach.c		\
 					$(SRCSDIR)new_node.c		\
-					$(SRCSDIR)stack_index.c		\
 
 OBJS			=	$(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 

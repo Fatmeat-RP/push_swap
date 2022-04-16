@@ -21,7 +21,6 @@ int	pb(t_llst *stack_a, t_llst *stack_b)
 	a_start = stack_a->first->next;
 	ft_lstadd_front(stack_b, stack_a->first);
 	stack_a->first = a_start;
-	stack_b->size += 1;
 	stack_a->size -= 1;
 	write(1, "pb\n", 4);
 	return (0);
@@ -37,7 +36,7 @@ int	rb(t_llst *stack_b)
 		return (-1);
 	two = stack_b->first->next;
 	one = stack_b->first;
-	last = stack_b->last;
+	last = ft_lstlast(stack_b->first);
 	last->next = one;
 	one->next = NULL;
 	stack_b->first = two;
@@ -54,7 +53,7 @@ int	rrb(t_llst *stack_b)
 	if (stack_b->size < 2)
 		return (-1);
 	temp_before_last = stack_b->first;
-	temp_last = stack_b->last;
+	temp_last = ft_lstlast(stack_b->first);
 	temp_second = stack_b->first->next;
 	while (temp_before_last->next->next)
 		temp_before_last = temp_before_last->next;

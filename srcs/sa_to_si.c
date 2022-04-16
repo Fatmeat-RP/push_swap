@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:54 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/15 17:28:53 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 14:18:51 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ t_llst	*stack_creator(char *avp, size_t size)
 	stack = atostack(avp, size);
 	stack->size = ft_lstsize(stack->first);
 	stack->last = ft_lstlast(stack->first);
+	stack = init_index(stack);
+	printf("%ld \n", stack->first->elem);
 	return (stack);
 }
 
@@ -51,7 +53,7 @@ t_llst	*atostack(char *s, size_t size)
 			return (NULL);
 		}
 		ft_lstadd_back(stack, new_node(ret->r2));
-		i += (int)ret->r1 + 1;
+		i += ret->r1 + 1;
 		free(ret);
 	}
 	return (stack);
@@ -75,10 +77,10 @@ t_return	*giga_atoi(char	*s)
 	if (s[i] == '-' || s[i] == '+')
 		if (s[i++] == '-')
 			maybe_neg *= (-1);
-	while (s[i] >= '0' && s[i] <= '9')
+	while ((s[i] >= '0' && s[i] <= '9'))
 		res = res * 10 + (s[i++] - '0');
-	ret->r1 = (void *)i;
-	ret->r2 = (void *)(res * maybe_neg);
+	ret->r1 = i;
+	ret->r2 = (res * maybe_neg);
 	return (ret);
 }
 
@@ -89,7 +91,7 @@ int	sorted(t_node *node, size_t stack_size)
 	i = 0;
 	if (stack_size <= 1)
 		return (-1);
-	while (node->next && (i <= stack_size))
+	while (node->next && (i < stack_size))
 	{
 		if (node->elem > node->next->elem)
 			return (-1);

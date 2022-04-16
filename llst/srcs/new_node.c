@@ -1,14 +1,12 @@
 #include <stack.h>
 
-t_node	*new_node_2(void *elem, t_node *next, t_cons delete)
+t_node	*new_node_2(int	elem, t_node *next)
 {
 	t_node	*entry;
 
 	entry = malloc(sizeof(t_node));
 	if (!entry)
 	{
-		if (next)
-			delete(next->elem);
 		free(next);
 		return (NULL);
 	}
@@ -17,7 +15,7 @@ t_node	*new_node_2(void *elem, t_node *next, t_cons delete)
 	return (entry);
 }
 
-t_node	*new_node(void *value)
+t_node	*new_node(int value)
 {
-	return (new_node_2(value, NULL, NULL));
+	return (new_node_2(value, NULL));
 }

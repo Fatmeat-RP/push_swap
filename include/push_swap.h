@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:09:36 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/15 17:06:31 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 14:32:22 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ typedef struct s_return t_return;
 
 struct s_return
 {
-	void		*r1;
-	void		*r2;
+	size_t		r1;
+	int			r2;
 	void		*r3;
 	void		*r4;
 	void		*r5;
@@ -50,6 +50,7 @@ void		sort_two(t_llst *stack_a);
 void		sort_three(t_llst *stack_a);
 void		sort_five(t_llst *stack_a, t_llst *stack_b);
 void		sort_big_stack(t_llst *stack_a, t_llst *stack_b);
+void		set_up_index(t_llst *stack_a);
 
 /* move set */
 

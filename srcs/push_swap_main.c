@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:58 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/15 17:29:09 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 13:58:43 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	main(int ac, char **av)
 
 int	check_char(char c)
 {
-	return ((c < 0 || (c > 32 && c < '0') || c > '9'));
+	return (((c < 0 || (c > 32 && c < '0') || c > '9') && !(c == 45 || c == 43)));
 }
 
 int	check_doublon(t_llst *stack_a)
@@ -101,7 +101,7 @@ t_llst	*args_to_stack_a(int ac, char **av)
 	{
 		if (check_char(avp[i]))
 		{
-			write (2, "Error\n", 7);
+			write (2, "Error, bad arguments\n", 22);
 			return (NULL);
 		}
 		else if (avp[i] == '\0')

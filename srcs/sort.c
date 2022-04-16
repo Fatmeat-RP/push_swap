@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 19:31:14 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/15 17:40:43 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 12:37:15 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,20 +93,22 @@ void	sort_big_stack(t_llst *stack_a, t_llst *stack_b)
 	while (i < max_bit)
 	{
 		j = 0;
-		while (j < max_num + 1)
+		while (j < max_num && stack_a->first)
 		{
 			if ((stack_a->first->index >> i) & 1)
+			{
 				ra(stack_a);
+			}
 			else
 			{
-				write(1, "pb\n", 4);
 				pb(stack_a, stack_b);
 			}
 			j++;
-			printf("%zu\n", stack_a->first->index);
 		}
-		while (stack_b->size > 1)
+		while (stack_b->size > 0)
+		{
 			pa(stack_a, stack_b);
+		}
 		i++;
 	}
 }

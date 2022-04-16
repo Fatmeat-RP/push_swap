@@ -7,6 +7,7 @@ void	mina_top(t_llst *stack_a)
 
 	if (stack_a->size < 1)
 		return ;
+	write(1, "mina\n", 6);
 	min = minstack(stack_a);
 	node = node_min(stack_a);
 	if (node_position(stack_a, node) < (stack_a->size / 2))
@@ -15,7 +16,7 @@ void	mina_top(t_llst *stack_a)
 			ra(stack_a);
 		return ;
 	}
-	while ((int)stack_a->first->elem != min)
+	if ((int)stack_a->first->elem != min)
 		rra(stack_a);
 }
 
@@ -26,14 +27,12 @@ int	minstack(t_llst *stack_a)
 
 	beg = stack_a->first;
 	min = (int)beg->elem;
-	while (beg->next)
+	while (beg)
 	{
 		if ((int)beg->elem < min)
 			min = (int)beg->elem;
 		beg = beg->next;
 	}
-	if ((int)beg->elem < min)
-		min = (int)beg->elem;
 	return (min);
 }
 

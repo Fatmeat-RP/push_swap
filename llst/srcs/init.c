@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:32:14 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/14 18:50:55 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 14:08:35 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,8 @@ t_node *node_init(t_node *node)
 	node = malloc(sizeof(t_node));
 	if (!node)
 		return (NULL);
-	node->elem = NULL;
+	node->elem = 0;
+	node->index = 0;
 	node->next = NULL;
 	return (node);
 }
