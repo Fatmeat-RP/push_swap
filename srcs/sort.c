@@ -6,12 +6,11 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 19:31:14 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 15:54:48 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/16 16:20:04 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <push_swap.h>
-
 
 int	sort(t_llst *stack_a, t_llst *stack_b)
 {
@@ -27,7 +26,6 @@ int	sort(t_llst *stack_a, t_llst *stack_b)
 		return (-1);
 	return (1);
 }
-
 
 void	sort_two(t_llst *stack_a)
 {
@@ -101,7 +99,7 @@ void	sort_big_stack(t_llst *stack_a, t_llst *stack_b)
 				pb(stack_a, stack_b, 1);
 			j++;
 		}
-		while (stack_b->size > 0)
+		while (stack_b->size > 1)
 			pa(stack_a, stack_b, 1);
 		i++;
 	}

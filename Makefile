@@ -41,14 +41,14 @@ directory		:
 			@mkdir -p $(OBJSDIR)
 
 ${LIB}			:
-			make -C llst
+			@make -C llst
 			@make clean -C llst
 
 $(NAME)			:	$(OBJS)
-			$(CC) ${SAN} ${CFLAGS} $(OBJS) -o $(NAME) $(LIB)
+			@$(CC) ${SAN} ${CFLAGS} $(OBJS) -o $(NAME) $(LIB)
 
 $(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c $(LIB) directory
-			$(CC) $(CFLAGS) ${HFLAGS} -c $< -o $@
+			@$(CC) $(CFLAGS) ${HFLAGS} -c $< -o $@
 
 
 clean			:

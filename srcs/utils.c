@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/04/16 15:56:26 by acarle-m          #+#    #+#             */
+/*   Updated: 2022/04/16 15:56:26 by acarle-m         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <push_swap.h>
 
 void	min_top(t_llst *stack_a)
@@ -87,5 +99,5 @@ long long	max_index(t_llst *stack_a)
 	}
 	if (beg->index > max)
 		max = beg->index;
-	return(max);
+	return (max);
 }
