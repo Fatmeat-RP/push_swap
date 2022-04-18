@@ -64,3 +64,15 @@ void	set_up_index(t_llst *stack_a)
 		tmp = tmp->next;
 	}
 }
+
+void	printstack(t_llst *lst)
+{
+	t_node *tmp;
+
+	tmp = lst->first;
+	while(tmp != NULL)
+	{
+		printf("elem %d:: index %zu\n", tmp->elem, tmp->index);
+		tmp = tmp->next;
+	}
+}

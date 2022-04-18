@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 19:31:14 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 16:20:04 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:19:21 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 int	sort(t_llst *stack_a, t_llst *stack_b)
 {
-	if (stack_a->size == 2)
+	if (ft_lstsize(stack_a->first) == 2)
 		sort_two(stack_a);
-	else if (stack_a->size == 3)
+	else if (ft_lstsize(stack_a->first) == 3)
 		sort_three(stack_a);
-	else if (stack_a->size <= 5)
+	else if (ft_lstsize(stack_a->first) <= 5)
 		sort_five(stack_a, stack_b);
 	else
 		sort_big_stack(stack_a, stack_b);
-	if (sorted(stack_a->first, stack_a->size) == -1)
+	if (sorted(stack_a->first, ft_lstsize(stack_a->first)) == -1)
 		return (-1);
 	return (1);
 }
@@ -61,7 +61,7 @@ void	sort_three(t_llst *stack_a)
 
 void	sort_five(t_llst *stack_a, t_llst *stack_b)
 {
-	if (stack_a->size == 5)
+	if (ft_lstsize(stack_a->first) == 5)
 	{
 		min_top(stack_a);
 		pb(stack_a, stack_b, 1);
@@ -86,20 +86,20 @@ void	sort_big_stack(t_llst *stack_a, t_llst *stack_b)
 	size_t	j;
 
 	max_bit = max_bit_len(max_index(stack_a));
-	max_num = stack_a->size - 1;
+	max_num = ft_lstsize(stack_a->first) - 1;
 	i = 0;
 	while (i < max_bit)
 	{
 		j = 0;
-		while (j < max_num && stack_a->first)
+		while (j <= max_num)
 		{
-			if ((stack_a->first->index >> i) & 1)
+			if (((stack_a->first->index >> i) & 1) == 1)
 				ra(stack_a, 1);
 			else
 				pb(stack_a, stack_b, 1);
 			j++;
 		}
-		while (stack_b->size > 1)
+		while (ft_lstsize(stack_b->first) > 1)
 			pa(stack_a, stack_b, 1);
 		i++;
 	}

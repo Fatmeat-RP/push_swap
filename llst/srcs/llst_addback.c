@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/04 14:40:42 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 16:05:37 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:32:42 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,7 @@ void	ft_lstadd_back(t_llst *linked_list, t_node *new)
 		linked_list->first = new;
 	else
 	{
-		p = linked_list->last;
+		p = ft_lstlast(linked_list->first);
 		p->next = new;
 	}
-	linked_list->last = new;
-	linked_list->size += 1;
 }

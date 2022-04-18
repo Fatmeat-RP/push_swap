@@ -17,11 +17,11 @@ void	min_top(t_llst *stack_a)
 	int		min;
 	t_node	*node;
 
-	if (stack_a->size < 1)
+	if (ft_lstsize(stack_a->first) < 1)
 		return ;
 	min = minstack(stack_a);
 	node = node_min(stack_a);
-	if (node_position(stack_a, node) < (stack_a->size / 2))
+	if (node_position(stack_a, node) < (ft_lstsize(stack_a->first) / 2))
 	{
 		while (stack_a->first->elem != min)
 			ra(stack_a, 1);

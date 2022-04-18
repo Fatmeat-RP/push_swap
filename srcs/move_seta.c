@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 16:03:14 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 16:03:19 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/18 16:25:32 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	sa(t_llst *stack_a, int p)
 {
 	t_node	*tmp;
 
-	if (stack_a->size < 2)
+	if (ft_lstsize(stack_a->first) < 2)
 		return (-1);
 	tmp = stack_a->first;
 	stack_a->first = stack_a->first->next;
@@ -34,7 +34,6 @@ int	pa(t_llst *stack_a, t_llst *stack_b, int p)
 	b_start = stack_b->first->next;
 	ft_lstadd_front(stack_a, stack_b->first);
 	stack_b->first = b_start;
-	stack_b->size -= 1;
 	if (p)
 		write(1, "pa\n", 3);
 	return (0);
@@ -46,7 +45,7 @@ int	ra(t_llst *stack_a, int p)
 	t_node	*two;
 	t_node	*last;
 
-	if (stack_a->size < 2)
+	if (ft_lstsize(stack_a->first) < 2)
 		return (-1);
 	two = stack_a->first->next;
 	one = stack_a->first;
@@ -65,7 +64,7 @@ int	rra(t_llst *stack_a, int p)
 	t_node	*temp_before_last;
 	t_node	*temp_last;
 
-	if (stack_a->size < 2)
+	if (ft_lstsize(stack_a->first) < 2)
 		return (-1);
 	temp_before_last = stack_a->first;
 	temp_last = ft_lstlast(stack_a->first);

@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 16:04:08 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 16:04:16 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:13:17 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,20 @@ t_node	*ft_lstlast(t_node *node)
 	return (node);
 }
 
-int	ft_lstsize(t_node *node)
+size_t	ft_lstsize(t_node *node)
 {
-	int	i;
+	size_t	i;
+	t_node	*tmp;
 
 	i = 0;
-	if (!node)
-		return (0);
-	while (node != NULL)
+	tmp = node;
+	if (lst_is_empty(node) == -1)
 	{
-		node = node->next;
-		i++;
+		while (tmp != NULL)
+		{
+			tmp = tmp->next;
+			i++;
+		}
 	}
 	return (i);
 }

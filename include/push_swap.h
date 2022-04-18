@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:09:36 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/16 16:08:36 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:26:52 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,5 +67,7 @@ int			rrb(t_llst *stack_b, int p);
 int			ss(t_llst *stack_a, t_llst *stack_b);
 int			rr(t_llst *stack_a, t_llst *stack_b);
 int			rrr(t_llst *stack_a, t_llst *stack_b);
+
+void	printstack(t_llst *lst);
 
 #endif

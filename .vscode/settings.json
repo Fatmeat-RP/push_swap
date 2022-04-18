@@ -2,6 +2,13 @@
 	"C_Cpp.errorSquiggles": "Disabled",
 	"files.associations": {
 		"unistd.h": "c",
-		"random": "c"
+		"random": "c",
+		"__hash_table": "c",
+		"__split_buffer": "c",
+		"array": "c",
+		"bitset": "c",
+		"initializer_list": "c",
+		"unordered_map": "c",
+		"vector": "c"
 	}
 }
