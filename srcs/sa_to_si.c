@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:54 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/18 17:26:13 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:54:50 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,8 @@ t_llst	*stack_creator(char *avp, size_t size)
 	t_llst	*stack;
 
 	stack = atostack(avp, size);
-	stack = init_index(stack);
+	if (stack)
+		stack = init_index(stack);
 	return (stack);
 }
 
@@ -42,9 +43,10 @@ t_llst	*atostack(char *s, size_t size)
 	while (i < size && s[i])
 	{
 		ret = giga_atoi(s + i);
-		if (!ret)
+		if (!ret || outofbound(ret))
 		{
-			llst_clear(stack);
+			if (stack)
+				llst_clear(stack);
 			return (NULL);
 		}
 		ft_lstadd_back(stack, new_node(ret->r2));

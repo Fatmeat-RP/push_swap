@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/14 19:31:14 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/18 17:19:21 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/18 17:55:00 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,7 +99,7 @@ void	sort_big_stack(t_llst *stack_a, t_llst *stack_b)
 				pb(stack_a, stack_b, 1);
 			j++;
 		}
-		while (ft_lstsize(stack_b->first) > 1)
+		while (ft_lstsize(stack_b->first) >= 1)
 			pa(stack_a, stack_b, 1);
 		i++;
 	}

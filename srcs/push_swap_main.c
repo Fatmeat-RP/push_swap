@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:58 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/18 17:26:35 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/18 18:57:56 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ int	main(int ac, char **av)
 	t_llst	*stack_b;
 
 	stack_a = args_to_stack_a(ac, av);
-	if (!stack_a || (check_doublon(stack_a) == -1)
-		|| (sorted(stack_a->first, ft_lstsize(stack_a->first)) == 1))
+	if ((!stack_a) || ((check_doublon(stack_a) == -1)
+			|| (sorted(stack_a->first, ft_lstsize(stack_a->first)) == 1)))
 	{
 		write(1, "Error\n", 6);
 		if (stack_a)
@@ -35,7 +35,6 @@ int	main(int ac, char **av)
 			free(stack_b);
 		return (-1);
 	}
-	printstack(stack_a);
 	llst_clear(stack_a);
 	free(stack_b);
 	return (0);
@@ -71,14 +70,14 @@ int	check_doublon(t_llst *stack_a)
 t_llst	*args_to_stack_a(int ac, char **av)
 {
 	size_t	i;
-	size_t	null_counter;
+	int		null_counter;
 	char	*avp;
 	t_llst	*stack_a;
 
 	i = 0;
 	null_counter = 0;
 	avp = av[1];
-	while (null_counter < (size_t)(ac - 1))
+	while (null_counter < (ac - 1))
 	{
 		if (check_char(avp[i]))
 			return (NULL);
@@ -90,7 +89,7 @@ t_llst	*args_to_stack_a(int ac, char **av)
 		i++;
 	}
 	stack_a = stack_creator(avp, i);
-	if (!ft_lstsize(stack_a->first))
+	if (!stack_a || ft_lstsize(stack_a->first) <= 1)
 		return (NULL);
 	return (stack_a);
 }

@@ -65,14 +65,12 @@ void	set_up_index(t_llst *stack_a)
 	}
 }
 
-void	printstack(t_llst *lst)
+int	outofbound(t_return *ret)
 {
-	t_node *tmp;
-
-	tmp = lst->first;
-	while(tmp != NULL)
+	if ((ret->r2 > 2147483647) || (ret->r2 < -2147483647))
 	{
-		printf("elem %d:: index %zu\n", tmp->elem, tmp->index);
-		tmp = tmp->next;
+		free(ret);
+		return (1);
 	}
+	return (0);
 }
