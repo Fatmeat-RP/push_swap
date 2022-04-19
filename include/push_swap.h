@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/10 19:09:36 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/18 18:42:49 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:11:03 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void		sort_five(t_llst *stack_a, t_llst *stack_b);
 void		sort_big_stack(t_llst *stack_a, t_llst *stack_b);
 void		set_up_index(t_llst *stack_a);
 int			outofbound(t_return *ret);
+t_llst		*error(t_llst *stack);
 
 /* move set */
 

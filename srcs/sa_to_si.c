@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:54 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/19 14:12:43 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/19 16:11:02 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,12 @@ t_llst	*atostack(char *s, size_t size)
 	{
 		ret = giga_atoi(s + i);
 		if (!ret || outofbound(ret))
-		{
-			if (stack)
-				llst_clear(stack);
-			return (NULL);
-		}
+			return (error(stack));
 		ft_lstadd_back(stack, new_node(ret->r2));
-		i += ret->r1 + 1;
+		i += ret->r1;
+		if (s[i] != ' ')
+			return (error(stack));
+		i++;
 		free(ret);
 	}
 	return (stack);

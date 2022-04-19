@@ -74,3 +74,10 @@ int	outofbound(t_return *ret)
 	}
 	return (0);
 }
+
+t_llst	*error(t_llst *stack)
+{
+	if (stack)
+		llst_clear(stack);
+	return (NULL);
+}
