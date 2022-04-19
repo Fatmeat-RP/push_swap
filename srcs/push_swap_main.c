@@ -6,7 +6,7 @@
 /*   By: acarle-m <acarle-m@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/12 17:28:58 by acarle-m          #+#    #+#             */
-/*   Updated: 2022/04/18 18:57:56 by acarle-m         ###   ########.fr       */
+/*   Updated: 2022/04/19 14:17:11 by acarle-m         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(int ac, char **av)
 	if ((!stack_a) || ((check_doublon(stack_a) == -1)
 			|| (sorted(stack_a->first, ft_lstsize(stack_a->first)) == 1)))
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		if (stack_a)
 			llst_clear(stack_a);
 		return (-1);
@@ -29,7 +29,7 @@ int	main(int ac, char **av)
 	stack_b = init_stack_b();
 	if (!stack_b || !sort(stack_a, stack_b))
 	{
-		write(1, "Error\n", 6);
+		write(2, "Error\n", 6);
 		llst_clear(stack_a);
 		if (stack_b)
 			free(stack_b);
