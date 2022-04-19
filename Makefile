@@ -47,7 +47,7 @@ ${LIB}			:
 $(NAME)			:	$(OBJS)
 			@$(CC) ${SAN} ${CFLAGS} $(OBJS) -o $(NAME) $(LIB)
 
-$(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c $(LIB) directory
+$(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c $(LIB) directory $(HEADERS)
 			@$(CC) $(CFLAGS) ${HFLAGS} -c $< -o $@
 
 
