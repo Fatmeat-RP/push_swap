@@ -37,8 +37,8 @@ LIB				=	llst/build/llst.a
 all				:	$(NAME)
 
 $(LIB)			:
-			@make -C llst
-			@make clean -C llst
+			$(MAKE) -C llst
+			@$(MAKE) clean -C llst
 
 $(NAME)			:	$(OBJS) $(LIB)
 			@mkdir -p $(BUILDDIR)
@@ -53,7 +53,7 @@ clean			:
 			@rm -rf $(OBJSDIR)
 
 fclean			:	clean
-			@make fclean -C llst
+			@$(MAKE) fclean -C llst
 			@rm -rf $(BUILDDIR)
 
 re				:	fclean all
