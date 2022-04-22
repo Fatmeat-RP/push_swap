@@ -11,9 +11,9 @@ CC				=	gcc
 
 CFLAGS			=	-Wall -Wextra -Werror
 
-HEADERDIR		=	include/
+HEADERDIR		=	include/push_swap.h
 
-HEADER			=	stack.h
+HEADER			=	llst/include/stack.h
 
 SAN				=	#-g -fsanitize=address
 
@@ -28,7 +28,7 @@ SRCS			= 	$(SRCSDIR)push_swap_main.c		\
 
 OBJS			=	$(SRCS:$(SRCSDIR)%.c=$(OBJSDIR)%.o)
 
-HEADERS			=	$(HEADERDIR)$(HEADER)
+HEADERS			=	$(HEADERDIR) $(HEADER)
 
 HFLAGS			=	-Iinclude -Illst/include
 
@@ -36,19 +36,17 @@ LIB				=	llst/build/llst.a
 
 all				:	$(NAME)
 
-directory		:
-			@mkdir -p $(BUILDDIR)
-			@mkdir -p $(OBJSDIR)
-
-${LIB}			:
+$(LIB)			:
 			@make -C llst
 			@make clean -C llst
 
-$(NAME)			:	$(OBJS)
-			@$(CC) ${SAN} ${CFLAGS} $(OBJS) -o $(NAME) $(LIB)
+$(NAME)			:	$(OBJS) $(LIB)
+			@mkdir -p $(BUILDDIR)
+			$(CC) ${SAN} ${CFLAGS} $(OBJS) -o $(NAME) $(LIB)
 
-$(OBJS)		:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c $(LIB) directory $(HEADERS)
-			@$(CC) $(CFLAGS) ${HFLAGS} -c $< -o $@
+$(OBJS)			:	$(OBJSDIR)%.o		:	$(SRCSDIR)%.c $(HEADERS)
+			@mkdir -p $(OBJSDIR)
+			$(CC) $(CFLAGS) $(HFLAGS) -c $< -o $@
 
 
 clean			:
@@ -82,4 +80,4 @@ sus				:
 	@echo "⢀⢂⢑⠀⡂⡃⠅⠊⢄⢑⠠⠑⢕⢕⢝⢮⢺⢕⢟⢮⢊⢢⢱⢄⠃⣇⣞⢞⣞⢾"
 	@echo "⢀⠢⡑⡀⢂⢊⠠⠁⡂⡐⠀⠅⡈⠪⠪⠪⠣⠫⠑⡁⢔⠕⣜⣜⢦⡰⡎⡯⡾⡽"
 
-.PHONY : re sus fclean clean all directory ${NAME} ${OBJS} ${LIB}
+.PHONY : re sus fclean clean all
